@@ -13,7 +13,11 @@
                 if($this->isNull()){
                     $this->result = 'Bạn chưa nhập đủ thông tin';
                 }elseif( registration::reg($this->input) ){
+                    
                     $this->result = 'Đăng ký thành công';
+                    session_start();
+                    $_SESSION['username'] = $this->input['userName'];
+                    header('Location: index.php?controller=pages&action=home');
                 }else{
                     $this->result = 'Tên đăng nhập đã tồn tại';
                 }
