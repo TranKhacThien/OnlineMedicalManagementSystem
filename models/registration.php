@@ -8,9 +8,8 @@
             // TODO: Implement __destruct() method.
         }
         static function reg($input){
-            if(self::isNotExist($input['userName']) == false){
-                return false;
-            }else{
+            if(self::isNotExist($input['userName']))
+            {
                 $db = DB::getInstance();
                 $sql = "INSERT INTO patient VALUES ( '" . $input['userName'] ."' , '" . $input['password'] ."' , '". $input['firstName']. "' , '".$input['lastName'] ."' , '". $input['contactNo']."' , '". $input['address'] ."' , '".$input['age']."' , '" . $input['height'] ."' , '". $input['weight']  ."' , '" . $input['sex']."' , '". $input['bloodGroup']."' )";
                 $db->exec($sql);
@@ -20,11 +19,13 @@
 //                    echo "Error: " . $sql . "<br>" . "xxxxxxxxx" . self::isNotExist($input['userName']);
 //                }
                 return true;
+            }else{
+                return false;
             }
         }
         static function isNotExist($loginName){
             $db = DB::getInstance();
-            $req = $db->prepare("SELECT pLoginName FROM patient WHERE pLoginName = '". $loginName."'");
+            $req = $db->prepare("SELECT patientLoginName FROM patient WHERE patientLoginName = '". $loginName."'");
             $req->setFetchMode(PDO::FETCH_ASSOC);
             $req->execute();
             $result = $req->fetchAll();
