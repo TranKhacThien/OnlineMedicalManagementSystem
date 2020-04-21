@@ -8,11 +8,11 @@
     <meta name="author" content="">
     <title>HMS</title>
 
-    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://onlinemedicalmanagementsystem.herokuapp.com/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="/css/simple-sidebar.css" rel="stylesheet">
+    <link href="https://onlinemedicalmanagementsystem.herokuapp.com/css/simple-sidebar.css" rel="stylesheet">
 </head>
-    <body style="height: 100%">
+    <body>
     <?= @$content ?>
 
 
@@ -27,8 +27,8 @@
 
 
 <!-- Bootstrap core JavaScript -->
-<script src="/vendor/jquery/jquery.min.js"></script>
-<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="https://onlinemedicalmanagementsystem.herokuapp.com/vendor/jquery/jquery.min.js"></script>
+<script src="https://onlinemedicalmanagementsystem.herokuapp.com/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <!-- Menu Toggle Script -->
 <script>
