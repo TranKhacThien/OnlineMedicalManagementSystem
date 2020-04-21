@@ -8,15 +8,17 @@
             $this->folder = 'pages';
         }
         function login(){
-            if( isset($_REQUEST['login']) ){
+            session_start();
+            if(isset($_SESSION['username'])){
+                header('Location: index.php?controller=pages&action=home');
+            }
+            elseif( isset($_REQUEST['login']) ){
                 $username = $_REQUEST['username'];
                 $password = $_REQUEST['password'];
                 $loginType = $_REQUEST['loginType'];
                 if(isset($username) and isset($password) and isset($loginType))
                 {
                     if( Login::verify($username,$password,$loginType)){
-
-                        session_start();
                         $_SESSION['username'] = $username;
 
                         header('Location: index.php?controller=pages&action=home');
