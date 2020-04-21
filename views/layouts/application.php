@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <title>HMS</title>
 
-    <link href="https://onlinemedicalmanagementsystem.herokuapp.com/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
 
     <link href="https://onlinemedicalmanagementsystem.herokuapp.com/css/simple-sidebar.css" rel="stylesheet">
 </head>
