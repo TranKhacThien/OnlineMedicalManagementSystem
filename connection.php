@@ -5,7 +5,9 @@ class DB
     public static function getInstance() {
       if (!isset(self::$instance)) {
         try {
-          self::$instance = new PDO('mysql:host=localhost;dbname=onlinemedicalmanagementsys', 'root', '');
+          // self::$instance = new PDO('mysql:host=localhost;dbname=onlinemedicalmanagementsys', 'root', '');
+          self::$instance = new PDO('mysql:host=localhost;dbname=ExLqwDN6iL', 'ExLqwDN6iL', 'LNmuNXmkg8');
+          
           self::$instance->exec("SET NAMES 'utf8'");
         } catch (PDOException $ex) {
           die($ex->getMessage());
