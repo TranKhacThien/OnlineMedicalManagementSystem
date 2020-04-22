@@ -1,4 +1,4 @@
-Hệ thống quản lí y tế trực tuyến
+﻿Hệ thống quản lí y tế trực tuyến
 
 Các chức năng đã hoàn thiện: 
 
@@ -15,4 +15,5 @@ Các chức năng đã hoàn thiện:
 	- Tài khoản bác sĩ được cung cấp : Tên đăng nhập: admin 	Mật khẩu:123456
 
 Cơ sở dữ liệu
+
 
