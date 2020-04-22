@@ -20,7 +20,7 @@
                 {
                     if( Login::verify($username,$password,$loginType)){
                         $_SESSION['username'] = $username;
-
+                        $_SESSION['type'] =$loginType;
                         header('Location: index.php?controller=pages&action=home');
                     }else{
                         $this->notification = 'Tên đăng nhập hoặc mật khẩu chưa đúng';
