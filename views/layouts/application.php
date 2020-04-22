@@ -15,7 +15,7 @@
     <body>
         <div class="d-flex" id="wrapper">
         <?php
-        
+
             if( isset($_SESSION['username'])){
                 echo "<div class='bg-light border-right' id='sidebar-wrapper'>
                     <div class='sidebar-heading'> <a href='' class='text-dark page-item'><img src='image/home.png' title='home' width='200' height='100'></a>  </div>
@@ -28,7 +28,7 @@
                             </ul>
                         </li>
                         <a href='#' class='list-group-item list-group-item-action bg-light'>Tin tức</a>
-                        <a href='#' class='list-group-item list-group-item-action bg-light'>Đội ngũ y tế</a>
+                        <a href='index.php?controller=doctorList&action=showList' class='list-group-item list-group-item-action bg-light'>Đội ngũ y tế</a>
                         <a href='#' class='list-group-item list-group-item-action bg-light'>Đặt lịch</a>
                         <a href='#' class='list-group-item list-group-item-action bg-light'>Thông tin cá nhân</a>
                         <a href='#' class='list-group-item list-group-item-action bg-light'>Hỏi đáp</a>
@@ -41,8 +41,11 @@
             <div id="page-content-wrapper">
                 <header>
                     <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-                        <button class="btn btn-primary" id="menu-toggle">Menu</button>
-
+                        <?
+                            if( isset($_SESSION['username'])){
+                                echo "<button class='btn btn-primary' id='menu-toggle'>Menu</button>";
+                            }
+                        ?>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
@@ -65,15 +68,20 @@
                                     </a>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Tài khoản
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="#">Thông tin tài khoản</a>
+                                    <?
+                                    if( isset($_SESSION['username'])){
+                                        echo   "<a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                                                    Tài khoản
+                                                </a>
+                                                <div class='dropdown-menu dropdown-menu-right' aria-labelledby='navbarDropdown'>
+                                                    <a class='dropdown-item' href='#'>Thông tin tài khoản</a>
+            
+                                                    <div class='dropdown-divider'></div>
+                                                    <a class='dropdown-item' href='index.php?controller=login&action=logout'>Đăng xuất</a>
+                                                </div>";
+                                    }
+                                    ?>
 
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="index.php?controller=login&action=logout">Đăng xuất</a>
-                                    </div>
                                 </li>
                             </ul>
                         </div>
