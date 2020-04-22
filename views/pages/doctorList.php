@@ -5,7 +5,6 @@
                 <?php
                     for( $i = 0; $i < 5; $i++){
                         if( isset($data[$i]))
-                            echo $_SESSION['username'];
                         echo "<div class='card' style='width: 50rem' >
                                     <div style='background-color: #ffe8a1' class='card-body row'>
                                         <div class='col-md-9'>

@@ -19,8 +19,9 @@
             if( isset($_SESSION['username'])){
                 echo "<div class='bg-light border-right' id='sidebar-wrapper'>
                     <div class='sidebar-heading'> <a href='' class='text-dark page-item'><img src='image/home.png' title='home' width='200' height='100'></a>  </div>
-                    <div class='list-group list-group-flush'>
-                        <li class='list-group-item bg-light'>
+                    <div class='list-group list-group-flush'>";
+                if( $_SESSION['username'] == 'patient') {
+                    echo "<li class='list-group-item bg-light'>
                             <a href='#homeSubmenu' data-toggle='collapse' aria-expanded='false' class='dropdown-toggle  list-group-item-action bg-light text-dark'>Giới thiệu</a>
                             <ul class='collapse list-unstyled' id='homeSubmenu'>
                                 <a href='#' class='list-group-item list-group-item-action bg-light'>Cơ sở vật chất</a>
@@ -28,8 +29,9 @@
                             </ul>
                         </li>
                         <a href='#' class='list-group-item list-group-item-action bg-light'>Tin tức</a>
-                        <a href='index.php?controller=doctorList&action=showList' class='list-group-item list-group-item-action bg-light'>Đội ngũ y tế</a>
-                        <a href='#' class='list-group-item list-group-item-action bg-light'>Đặt lịch</a>
+                        <a href='index.php?controller=doctorList&action=showList' class='list-group-item list-group-item-action bg-light'>Đội ngũ y tế</a>";
+                }
+                echo   "<a href='#' class='list-group-item list-group-item-action bg-light'>Đặt lịch</a>
                         <a href='#' class='list-group-item list-group-item-action bg-light'>Thông tin cá nhân</a>
                         <a href='#' class='list-group-item list-group-item-action bg-light'>Hỏi đáp</a>
                         <a href='#' class='list-group-item list-group-item-action bg-light'>Báo cáo</a>
