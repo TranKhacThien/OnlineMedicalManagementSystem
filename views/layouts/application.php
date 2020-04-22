@@ -20,7 +20,7 @@
                 echo "<div class='bg-light border-right' id='sidebar-wrapper'>
                     <div class='sidebar-heading'> <a href='' class='text-dark page-item'><img src='image/home.png' title='home' width='200' height='100'></a>  </div>
                     <div class='list-group list-group-flush'>";
-                if( $_SESSION['username'] == 'patient') {
+                if( $_SESSION['type'] == 'patient') {
                     echo "<li class='list-group-item bg-light'>
                             <a href='#homeSubmenu' data-toggle='collapse' aria-expanded='false' class='dropdown-toggle  list-group-item-action bg-light text-dark'>Giới thiệu</a>
                             <ul class='collapse list-unstyled' id='homeSubmenu'>
