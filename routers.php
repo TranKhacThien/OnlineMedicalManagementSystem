@@ -3,7 +3,8 @@
 $controllers = array(
     'pages' => ['home', 'error'],
     'registration' => ['registration'],
-    'login' => ['login', 'logout']
+    'login' => ['login', 'logout'],
+    'doctorList' => ['showList']
     //'posts' => ['index'], // bổ sung thêm
 );
 

@@ -19,7 +19,8 @@ class BaseController
       require_once('views/layouts/application.php');
     } else {
       // Nếu file muốn gọi ra không tồn tại thì chuyển hướng đến trang báo lỗi.
-      header('Location: index.php?controller=pages&action=error');
+      echo $view_file;
+      // header('Location: index.php?controller=pages&action=error');
     }
   }
 }

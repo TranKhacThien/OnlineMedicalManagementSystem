@@ -1,20 +1,20 @@
-<div id="page-content-wrapper">
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-            <a href="index.php" class="text-dark page-item"><img src="image/home.png" title="home" width="200" height="100"></a>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.php">Trang chủ<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Liên hệ</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-</div>
+<!--<div id="page-content-wrapper">-->
+<!--    <header>-->
+<!--        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">-->
+<!--            <a href="index.php" class="text-dark page-item"><img src="image/home.png" title="home" width="200" height="100"></a>-->
+<!--            <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
+<!--                <ul class="navbar-nav ml-auto mt-2 mt-lg-0">-->
+<!--                    <li class="nav-item active">-->
+<!--                        <a class="nav-link" href="index.php">Trang chủ<span class="sr-only">(current)</span></a>-->
+<!--                    </li>-->
+<!--                    <li class="nav-item">-->
+<!--                        <a class="nav-link" href="#">Liên hệ</a>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--        </nav>-->
+<!--    </header>-->
+<!--</div>-->
 <div class="container">
     <div class="row">
         <div class="col-md-9">
