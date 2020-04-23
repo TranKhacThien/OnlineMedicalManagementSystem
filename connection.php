@@ -7,7 +7,7 @@ class DB
         try {
           // self::$instance = new PDO('mysql:host=localhost;dbname=onlinemedicalmanagementsys', 'root', '');
         	//self::$instance = new PDO('mysql:host=127.0.0.1:3307;dbname=baitaploncsdl', 'root', '');
-          self::$instance = new PDO('mysql:host=37.59.55.185;dbname=ExLqwDN6iL', 'ExLqwDN6iL', 'LNmuNXmkg8');
+          self::$instance = new PDO('mysql:host=37.59.55.185;dbname=ExLqwDN6iL', 'ExLqwDN6iL', 'u2f77AIWiN');
           
           self::$instance->exec("SET NAMES 'utf8'");
         } catch (PDOException $ex) {
