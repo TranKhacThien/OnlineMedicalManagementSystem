@@ -9,10 +9,9 @@
     <title>HMS</title>
 
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
-
     <link href="https://onlinemedicalmanagementsystem.herokuapp.com/css/simple-sidebar.css" rel="stylesheet">
 </head>
-    <body>
+    <body style="background-color:powderblue;">
         <div class="d-flex" id="wrapper">
         <?php
 
@@ -27,7 +26,6 @@
                         <a href='index.php?controller=doctorList&action=showList' class='list-group-item list-group-item-action bg-light'>Đội ngũ y tế</a>";
                 }
                 echo   "<a href='#' class='list-group-item list-group-item-action bg-light'>Đặt lịch</a>
-                        <a href='#' class='list-group-item list-group-item-action bg-light'>Thông tin cá nhân</a>
                         <a href='#' class='list-group-item list-group-item-action bg-light'>Hỏi đáp</a>
                         <a href='#' class='list-group-item list-group-item-action bg-light'>Báo cáo</a>
                     </div>
@@ -36,7 +34,7 @@
             }
         ?>
             <div id="page-content-wrapper">
-                <header style="margin-bottom: 30px">
+                <header style="margin-bottom: 50px">
                     <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
                         <?php
                             if( isset($_SESSION['username'])){
@@ -71,7 +69,7 @@
                                                     ".$_SESSION['username']."
                                                 </a>
                                                 <div class='dropdown-menu dropdown-menu-right' aria-labelledby='navbarDropdown'>
-                                                    <a class='dropdown-item' href='index.php?controller=getInf&action=showInf'>Thông tin tài khoản</a>
+                                                   <a class='dropdown-item' href='index.php?controller=getInf&action=showInf'>Thông tin tài khoản</a>
             
                                                     <div class='dropdown-divider'></div>
                                                     <a class='dropdown-item' href='index.php?controller=login&action=logout'>Đăng xuất</a>
