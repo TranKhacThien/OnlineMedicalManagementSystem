@@ -17,6 +17,7 @@
                     $this->result = 'Đăng ký thành công';
                     session_start();
                     $_SESSION['username'] = $this->input['userName'];
+                    $_SESSION['type'] = 'patient';
                     header('Location: index.php?controller=pages&action=home');
                 }else{
                     $this->result = 'Tên đăng nhập đã tồn tại';

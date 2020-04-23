@@ -9,8 +9,9 @@
 
         }
         public function showList(){
+            session_start();
             $page = $_GET['page'];
-            $list = doctor::getlist($page);
+            $list = Doctor::getlist($page);
             $data = $list;
             $this->render('doctorList',$data);
         }
