@@ -20,13 +20,7 @@
                 echo "<div class='bg-light border-right' id='sidebar-wrapper'>
                     <div class='sidebar-heading'> <a href='' class='text-dark page-item'><img src='image/home.png' title='home' width='200' height='100'></a>  </div>
                     <div class='list-group list-group-flush'>
-                        <li class='list-group-item bg-light'>
-                            <a href='#homeSubmenu' data-toggle='collapse' aria-expanded='false' class='dropdown-toggle  list-group-item-action bg-light text-dark'>Giới thiệu</a>
-                            <ul class='collapse list-unstyled' id='homeSubmenu'>
-                                <a href='#' class='list-group-item list-group-item-action bg-light'>Cơ sở vật chất</a>
-                                <a href='#' class='list-group-item list-group-item-action bg-light'>Đội ngũ y tế</a>
-                            </ul>
-                        </li>
+                        <a href='views/pages/contact.html' class='list-group-item list-group-item-action bg-light'>Giới thiệu</a>
                         <a href='#' class='list-group-item list-group-item-action bg-light'>Tin tức</a>
                         <a href='#' class='list-group-item list-group-item-action bg-light'>Đội ngũ y tế</a>
                         <a href='#' class='list-group-item list-group-item-action bg-light'>Đặt lịch</a>
@@ -69,7 +63,7 @@
                                         Tài khoản
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="#">Thông tin tài khoản</a>
+                                        <a class="dropdown-item" href="index.php?controller=getInf&action=showInf">Thông tin tài khoản</a>
 
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="index.php?controller=login&action=logout">Đăng xuất</a>
