@@ -20,7 +20,7 @@
                             <div class="form-group text-info ">
                                 <input type="radio" id = "patient" name="loginType" value="patient" >
                                 <label for="patient">Người khám bệnh</label>
-                                <input style="margin-left: 100px" type="radio" id = "doctor" name="loginType" value="doctor" >
+                                <input style="margin-left: 50px" type="radio" id = "doctor" name="loginType" value="doctor" >
                                 <label for="doctor">Bác sĩ</label>
                             </div>
                             <div class="form-group text-info ">
