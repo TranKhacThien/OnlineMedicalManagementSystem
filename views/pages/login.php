@@ -1,48 +1,40 @@
-<!--<div id="page-content-wrapper">-->
-<!--    <header>-->
-<!--        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">-->
-<!--            <a href="index.php" class="text-dark page-item"><img src="image/home.png" title="home" width="200" height="100"></a>-->
-<!--            <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
-<!--                <ul class="navbar-nav ml-auto mt-2 mt-lg-0">-->
-<!--                    <li class="nav-item active">-->
-<!--                        <a class="nav-link" href="index.php">Trang chủ<span class="sr-only">(current)</span></a>-->
-<!--                    </li>-->
-<!--                    <li class="nav-item">-->
-<!--                        <a class="nav-link" href="#">Liên hệ</a>-->
-<!--                    </li>-->
-<!--                </ul>-->
-<!--            </div>-->
-<!--        </nav>-->
-<!--    </header>-->
-<!--</div>-->
-<div class="container">
-    <div class="row">
-        <div class="col-md-9">
-            <div class = "card">
-                <h1>Đăng Nhập</h1>
-                <?php
-                if( isset($notification))
-                    echo '<p>'.$notification.'</p>';
-                ?>
-
-                <form action='' method='post'>
-                    <div><input type='text' name='username' placeholder='Tên đăng nhập'></div>
-                    <div><input type='password' name='password' placeholder='Mật khẩu'></div>
-                    <div>
-                        <blockquote>
-                            <input type="radio" id = "patient" name="loginType" value="patient" >
-                            <label for="doctor">Người khám bệnh</label>
-                            <input type="radio" id = "doctor" name="loginType" value="doctor" >
-                            <label for="doctor">Bác sĩ</label>
-                        </blockquote>
-                    </div>
-                    <div>
-                        <button><input style="padding: 15px 32px; border: none   display: inline-block;
-                        " class="tbn bg-info text-light" type='submit' name="login" id="login" value='Đăng nhập' ></button>
-                        <button ><a class="btn btn-info text-light" href="index.php?controller=registration&action=registration">Đăng ký</a></button>
-                    </div>
-                </form>
-
+<div id="login">
+    <div class="container">
+        <div id="login-row" class="row justify-content-center align-items-center">
+            <div id="login-column" class="col-md-6">
+                <div id="login-box" class="col-md-12">
+                    <form style="margin-top: 100px" id="login-form" class="form" action="" method="post">
+                        <h3 class="text-center text-info">Đăng Nhập</h3>
+                        <?php
+                            if( isset($notification))
+                                echo '<p class="text-danger">'.$notification.'</p>';
+                        ?>
+                        <div class="form-group">
+                            <label for="username" class="text-info">Tên đăng nhập :</label><br>
+                            <input type="text" name="username" id="username" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="text-info">Mật khẩu :</label><br>
+                            <input type="password" name="password" id="password" class="form-control">
+                        </div>
+                        <div style="margin-top: 30px" class="row">
+                            <div class = "col-md-6">
+                                <input type="radio" id = "patient" name="loginType" value="patient" >
+                                <label for="patient">Người khám bệnh</label>
+                            </div>
+                            <div class = "col-md-6">
+                                <input type="radio" id = "doctor" name="loginType" value="doctor" >
+                                <label for="doctor">Bác sĩ</label>
+                            </div>
+                        </div>
+                        <div style="margin-top: 30px" class="form-group">
+                            <input type='submit' name="login"  class="btn btn-info btn-md" id="login" value='Đăng nhập'>
+                        </div>
+                        <div id="register-link" class="text-right">
+                            <a href="index.php?controller=registration&action=registration" class="text-info">Đăng ký</a>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

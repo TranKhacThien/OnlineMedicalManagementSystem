@@ -36,9 +36,9 @@
             }
         ?>
             <div id="page-content-wrapper">
-                <header>
+                <header style="margin-bottom: 30px">
                     <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-                        <?
+                        <?php
                             if( isset($_SESSION['username'])){
                                 echo "<button class='btn btn-primary' id='menu-toggle'>Menu</button>";
                             }
@@ -65,13 +65,13 @@
                                     </a>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <?
+                                    <?php
                                     if( isset($_SESSION['username'])){
                                         echo   "<a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-                                                    Tài khoản
+                                                    ".$_SESSION['username']."
                                                 </a>
                                                 <div class='dropdown-menu dropdown-menu-right' aria-labelledby='navbarDropdown'>
-                                                   <a class='dropdown-item' href='index.php?controller=getInf&action=showInf'>Thông tin tài khoản</a>
+                                                    <a class='dropdown-item' href='index.php?controller=getInf&action=showInf'>Thông tin tài khoản</a>
             
                                                     <div class='dropdown-divider'></div>
                                                     <a class='dropdown-item' href='index.php?controller=login&action=logout'>Đăng xuất</a>
