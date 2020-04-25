@@ -10,8 +10,16 @@
         }
         public function showList(){
             session_start();
-            $page = $_GET['page'];
-            $list = Doctor::getlist($page);
+            
+            if( !isset($_GET['page']) )
+            {
+                $page = 1;
+            }
+            else
+            {
+                $page = $_GET['page'];
+            }
+            $list = Doctor::getList($page);
             $data = $list;
             $this->render('doctorList',$data);
         }

@@ -15,7 +15,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="password" class="text-info">Mật khẩu:</label><br>
-                                <input type="text" name="password" id="password" class="form-control">
+                                <input type="password" name="password" id="password" class="form-control">
                             </div>
                             <div class="form-group text-info ">
                                 <input type="radio" id = "patient" name="loginType" value="patient" >

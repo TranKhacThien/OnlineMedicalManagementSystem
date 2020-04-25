@@ -31,13 +31,17 @@
 
 
     <?php
-        $currentPage = $_GET['page'];
+        $currentPage = $data['page'];
     
         echo"<ul class='pagination justify-content-center'>
                 <li class='page-item'>
                     <a class='page-link'";
-        if( $currentPage == 1) echo "href='#'";
-        else echo  "href='index.php?controller=doctorList&action=showList&page=".($currentPage-1);
+                if( $currentPage == 1){
+                    echo "href='#'";
+                }
+                else{ 
+                    echo  "href='index.php?controller=doctorList&action=showList&page=".($currentPage-1);
+                }
                 echo   "' aria-label='Previous'>
                         
                         <span aria-hidden='true'>&laquo;</span>
@@ -55,9 +59,12 @@
                 </li>
                 <li class='page-item'>
                     <a class='page-link'";
-                if( $currentPage == 3) echo "href='#";
-                else echo "href='index.php?controller=doctorList&action=showList&page=".($currentPage+1);
-                
+                if( $currentPage == 3){
+                    echo "href='#";
+                }
+                else{
+                    echo "href='index.php?controller=doctorList&action=showList&page=".($currentPage+1);
+                }
                 echo "' aria-label='Next'>
                     <span aria-hidden='true'>&raquo;</span>
                     <span class='sr-only'>Next</span>

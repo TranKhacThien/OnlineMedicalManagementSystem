@@ -1,4 +1,7 @@
 
+<?php
+	require_once '../layouts/application.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

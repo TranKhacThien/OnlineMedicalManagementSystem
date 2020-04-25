@@ -21,7 +21,7 @@
                     <div class='list-group list-group-flush'>";
 
                 if( $_SESSION['type'] == 'patient') {
-                    echo "<a href='views/pages/contact.html' class='list-group-item list-group-item-action bg-light'>Giới thiệu</a>
+                    echo "<a href='views/pages/contact.php' class='list-group-item list-group-item-action bg-light'>Giới thiệu</a>
                         <a href='#' class='list-group-item list-group-item-action bg-light'>Tin tức</a>
                         <a href='index.php?controller=doctorList&action=showList' class='list-group-item list-group-item-action bg-light'>Đội ngũ y tế</a>";
                 }
@@ -53,14 +53,12 @@
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Liên hệ
-
-                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="#">0909587999</a>
-
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Địa chỉ </a>
-                                        </div>
                                     </a>
+                                    <div class='dropdown-menu dropdown-menu-right' aria-labelledby='navbarDropdown'>
+                                        <a class="dropdown-item" href="#">0909587999</a>
+                                        <a class="dropdown-item" href="#">Địa chỉ </a>
+                                    </div>
+                                    
                                 </li>
                                 <li class="nav-item dropdown">
                                     <?php
@@ -69,9 +67,7 @@
                                                     ".$_SESSION['username']."
                                                 </a>
                                                 <div class='dropdown-menu dropdown-menu-right' aria-labelledby='navbarDropdown'>
-                                                   <a class='dropdown-item' href='index.php?controller=getInf&action=showInf'>Thông tin tài khoản</a>
-            
-                                                    <div class='dropdown-divider'></div>
+                                                   <a class='dropdown-item' href='index.php?controller=getInf&action=showInf'>Thông tin tài khoản</a>            
                                                     <a class='dropdown-item' href='index.php?controller=login&action=logout'>Đăng xuất</a>
                                                 </div>";
                                     }
@@ -87,12 +83,14 @@
         <?= @$content ?>
             </div>
         </div>
-        <!--<footer style="position: fixed;margin-top: auto; bottom:0; width: 100%" class="py-3 bg-dark">-->
-        <!--    <div class="container">-->
-        <!--        <p class=" text-center text-white">Copyright &copy; Your Website 2020</p>-->
-        <!--    </div>-->
-        <!---->
-        <!--</footer>-->
+        <?php
+            if( isset($_SESSION['username'])) 
+                echo"<footer style='position: static;margin-top: auto; bottom:0; width: 100%' class='py-3 bg-dark'>
+                        <div class='container'>
+                            <p class=' text-center text-white'>Copyright &copy; Your Website 2020</p>
+                        </div>
+                    </footer>";
+        ?>
         <!-- Bootstrap core JavaScript -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
