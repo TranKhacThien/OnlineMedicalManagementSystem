@@ -26,7 +26,7 @@
                         <a href='index.php?controller=doctorList&action=showList' class='list-group-item list-group-item-action bg-light'>Đội ngũ y tế</a>";
                 }
                 echo   "<a href='#' class='list-group-item list-group-item-action bg-light'>Đặt lịch</a>
-                        <a href='#' class='list-group-item list-group-item-action bg-light'>Hỏi đáp</a>
+                        <a href='index.php?controller=advisory&action=creQuestion' class='list-group-item list-group-item-action bg-light'>Hỏi đáp</a>
                         <a href='#' class='list-group-item list-group-item-action bg-light'>Báo cáo</a>
                     </div>
     

@@ -1,16 +1,13 @@
 <?php
-class Post
+class Advisory
 {
-  public $patientName;
-  public $content;
-
   function __construct($patientName, $content)
   {
     $this->patientName = $patientName;
     $this->content = $content;
   }
 
-  static function showQuestion($option)
+  static function showQuestion()
   {
     $list = [];
     $db = DB::getInstance();
@@ -35,13 +32,6 @@ class Post
     $db = DB::getInstance();
     $sql = "INSERT INTO question (patientLoginName,questionTitle,questionDetail) VALUES ('". $_SESSION['username']  . "' , '" . $question['questionTitle'] . "' , '" . $question['questionDetail']." ')";
     $db->exec($sql);
-    if ($db->query($sql) === TRUE) {
-      // echo "New question created successfully";
-      return true;
-    } else {
-        // echo "Error: " . $sql . "<br>" . "xxxxxxxxx" . self::isNotExist($input['userName']);
-        return false;
-    }
   }
 
 }

@@ -3,7 +3,7 @@
     <div class="row">
 
 
-        <div class="col-md-7">
+        <div class="col-md-8">
 
             <div class="card my-4">
                 <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">

@@ -6,8 +6,8 @@
                         <form id="login-form" class="form" action="" method="post">
                             <h3 class="text-center text-info">Đăng nhập</h3>
                             <?php
-                                if( isset($notification))
-                                    echo "<p class='text-danger'>".$notification.'</p>';
+                                if( isset($data['notification']))
+                                    echo "<p class='text-danger'>".$data['notification'].'</p>';
                             ?>
                             <div class="form-group">
                                 <label for="username" class="text-info">Tên đăng nhập:</label><br>
