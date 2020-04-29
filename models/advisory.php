@@ -12,7 +12,7 @@ class Advisory
     $db = DB::getInstance();
     if( $target == 'myQuestion')
     {
-        $req = $db->prepare('SELECT * FROM question WHERE patientLoginName ='. $_SESSION['username']);
+        $req = $db->prepare("SELECT * FROM question WHERE ". $_SESSION['type']."LoginName = '". $_SESSION['username'] . "'");
     }
     elseif($target == 'all')
     {

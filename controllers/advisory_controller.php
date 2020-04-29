@@ -47,11 +47,11 @@ class AdvisoryController extends BaseController
     $data = Advisory::showQuestions('all',$page);
     $this->render('showQuestions', $data);
   }
-  public function showMyQuestions() // xem các câu hỏi của mình 
-  {
-      $data = Advisory::showQuestions('myQuestion');
-      $his->render('showQuestions',$data);
-  }
+  // public function showMyQuestions() // xem các câu hỏi của mình 
+  // {
+  //     $data = Advisory::showQuestions('myQuestion');
+  //     return $data;
+  // }
   public function answer()
   {
       if($_SESSION['type'] == 'doctor'){
