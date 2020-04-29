@@ -6,7 +6,7 @@ $controllers = array(
     'login' => ['login', 'logout'],
     'doctorList' => ['showList'],
     'getInf'=>['showInf'],
-    'advisory'=>['showQuestion','creQuestion']
+    'advisory'=>['showQuestions','creQuestion','answer']
 );
 
 if (!array_key_exists($controller, $controllers) || !in_array($action, $controllers[$controller])) {

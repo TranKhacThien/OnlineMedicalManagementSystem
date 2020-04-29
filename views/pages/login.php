@@ -10,14 +10,14 @@
                                     echo "<p class='text-danger'>".$data['notification'].'</p>';
                             ?>
                             <div class="form-group">
-                                <label for="username" class="text-info">Tên đăng nhập:</label><br>
+                                <label for="username" class="text-light">Tên đăng nhập:</label><br>
                                 <input type="text" name="username" id="username" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="password" class="text-info">Mật khẩu:</label><br>
+                                <label for="password" class="text-light">Mật khẩu:</label><br>
                                 <input type="password" name="password" id="password" class="form-control">
                             </div>
-                            <div class="form-group text-info ">
+                            <div class="form-group text-light ">
                                 <input type="radio" id = "patient" name="loginType" value="patient" >
                                 <label for="patient">Người khám bệnh</label>
                                 <input style="margin-left: 50px" type="radio" id = "doctor" name="loginType" value="doctor" >
@@ -27,7 +27,7 @@
                                <input class="btn btn-info btn-md" type='submit' name="login" id="login" value='Đăng nhập' >
                             </div>
                             <div id="register-link" class="text-right">
-                                <a href="index.php?controller=registration&action=registration" class="text-info">Đăng ký</a>
+                                <a href="index.php?controller=registration&action=registration" class="text-light">Đăng ký</a>
                             </div>
                         </form>
                     </div>

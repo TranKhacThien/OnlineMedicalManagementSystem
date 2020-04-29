@@ -4,25 +4,39 @@
             <div class="col-md-9">
                 <?php
                     for( $i = 0; $i < 5; $i++){
-                        if( isset($data[$i]))
-                        echo "
-                            <div class='container'>                    
-                                <div class='row'>
-                                    <div class='col-md-4'>
-                                        <a href='#'>
-                                            <img class='img-fluid rounded mb-3 mb-md-0' src='".$data[$i]['avatar']."' alt='' width=200>
-                                        </a>
-                                    </div>
-                                    <div class='col-md-8'>
-                                        <h3>Bác sĩ:     ".$data[$i]['doctorName']."</h3>
-                                        <p>Chuyên khoa: ".$data[$i]['specialization']." </p>
-                                        <p>Trình độ:    ".$data[$i]['qualification']."</p>
-                                        <a class='btn btn-primary' href='#'>Đặt câu hỏi</a><br><br>
-                                        <a class='btn btn-primary' href='#'>Đặt lịch khám</a>
-                                    </div>
-                                </div>                            
-                                <hr>
-                            </div>";
+                        if( isset($data[$i])){
+                ?>        
+                        <div class='container'>                    
+                            <div class='row'>
+                                <div class='col-md-4'>
+                                    <a href='#'>
+                                        <img width='150px' height='200px' class='img-fluid rounded mb-3 mb-md-0' src=<?php echo $data[$i]['avatar'];?> alt=''>
+                                    </a>
+                                </div>
+                                <div class='col-md-8'>
+                                    <h3>Bác sĩ:     
+                                        <?php 
+                                            echo $data[$i]['doctorName'];
+                                        ?>
+                                    </h3>
+                                    <p>Chuyên khoa: 
+                                        <?php 
+                                            echo $data[$i]['specialization']; 
+                                        ?>
+                                    </p>
+                                    <p>Trình độ:    
+                                        <?php
+                                            echo $data[$i]['qualification'];
+                                        ?>        
+                                    </p>
+                                    <a class='btn btn-primary' href='?controller=advisory&action=creQuestion&name=<?php echo $data[$i]['doctorLoginName']; ?>'>Đặt câu hỏi</a><br><br>
+                                    <a class='btn btn-primary' href='#'>Đặt lịch khám</a>
+                                </div>
+                            </div>                            
+                            <hr>
+                        </div>
+                <?php
+                        }
                     }
                 ?>
             </div>
@@ -73,5 +87,3 @@
             </ul>";
     ?>
 </div>
-
-

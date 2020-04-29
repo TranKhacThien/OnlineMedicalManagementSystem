@@ -10,8 +10,10 @@
 
             }
             public function showInf(){
-
-                $data=getInformation::GetInf();
+                session_start();
+                $loginName = $_SESSION['username'] ;
+                $loginType = $_SESSION['type'];
+                $data=getInformation::GetInf($loginName,$loginType);
 
                 $this->render('personInformation',$data);
             }

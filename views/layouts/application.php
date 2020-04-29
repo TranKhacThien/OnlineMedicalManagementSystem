@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 <head>
     <meta charset="utf-8">
@@ -11,22 +11,38 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://onlinemedicalmanagementsystem.herokuapp.com/css/simple-sidebar.css" rel="stylesheet">
 </head>
-    <body style="background-color:powderblue;">
+    <?php
+        if( isset($_SESSION['username'])){
+    ?>
+            <body style="background: url('image/background.jpg') no-repeat center center fixed" >
+    <?php
+        }else{
+    ?>
+            <body style="background: url('image/background3.jpg') no-repeat center center fixed" >
+    <?php        
+        }
+    ?>
+    <!-- <body style="background-color:powderblue;"> -->
+    <body style="background: url('image/background3.jpg') no-repeat center center fixed" >
         <div class="d-flex" id="wrapper">
         <?php
-
+            
             if( isset($_SESSION['username'])){
                 echo "<div class='bg-light border-right' id='sidebar-wrapper'>
                     <div class='sidebar-heading'> <a href='' class='text-dark page-item'><img src='image/home.png' title='home' width='200' height='100'></a>  </div>
                     <div class='list-group list-group-flush'>";
 
                 if( $_SESSION['type'] == 'patient') {
+                    $advisory = 'creQuestion';
                     echo "<a href='views/pages/contact.php' class='list-group-item list-group-item-action bg-light'>Giới thiệu</a>
                         <a href='#' class='list-group-item list-group-item-action bg-light'>Tin tức</a>
                         <a href='index.php?controller=doctorList&action=showList' class='list-group-item list-group-item-action bg-light'>Đội ngũ y tế</a>";
                 }
+                else{
+                    $advisory = 'showQuestions';
+                }
                 echo   "<a href='#' class='list-group-item list-group-item-action bg-light'>Đặt lịch</a>
-                        <a href='index.php?controller=advisory&action=creQuestion' class='list-group-item list-group-item-action bg-light'>Hỏi đáp</a>
+                        <a href='index.php?controller=advisory&action=".$advisory."' class='list-group-item list-group-item-action bg-light'>Hỏi đáp</a>
                         <a href='#' class='list-group-item list-group-item-action bg-light'>Báo cáo</a>
                     </div>
     
@@ -34,7 +50,7 @@
             }
         ?>
             <div id="page-content-wrapper">
-                <header style="margin-bottom: 50px">
+                <header style=" margin-bottom: 50px">
                     <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
                         <?php
                             if( isset($_SESSION['username'])){
@@ -80,12 +96,13 @@
                 </header>
 
 
-        <?= @$content ?>
+                <?= @$content ?>
+        
             </div>
         </div>
         <?php
             if( isset($_SESSION['username'])) 
-                echo"<footer style='position: static;margin-top: auto; bottom:0; width: 100%' class='py-3 bg-dark'>
+                echo"<footer style='position: static;margin-top: 10px; bottom:0; width: 100%' class='py-3 bg-dark'>
                         <div class='container'>
                             <p class=' text-center text-white'>Copyright &copy; Your Website 2020</p>
                         </div>

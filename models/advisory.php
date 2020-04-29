@@ -1,37 +1,49 @@
 <?php
 class Advisory
 {
-  function __construct($patientName, $content)
+  function __construct()
   {
-    $this->patientName = $patientName;
-    $this->content = $content;
+
   }
 
-  static function showQuestion()
+  static function showQuestions($target,$page)
   {
     $list = [];
     $db = DB::getInstance();
-    $req = $db->query('SELECT * FROM posts');
+    if( $target == 'myQuestion')
+    {
+        $req = $db->prepare('SELECT * FROM question WHERE patientLoginName ='. $_SESSION['username']);
+    }
+    elseif($target == 'all')
+    {
+      $req = $db->prepare('SELECT * FROM question WHERE answer IS NULL LIMIT '. (($page-1)*5) .' , 5');
+    }
+    else{
+      $req = $db->prepare("SELECT * FROM question WHERE questionID =".$target);
+    }
+    $req->setFetchMode(PDO::FETCH_ASSOC);
+    $req->execute();
+    $list = $req->fetchAll();
+    $list['page'] = $page;
     return $list;
-    
-    // foreach ($req->fetchAll() as $item) {
-    //   $list[] = new Post($item['id'], $item['title'], $item['content']);
-    // }
-
-    // $req = $db->prepare('SELECT * FROM posts WHERE id = :id');
-    //   $req->execute(array('id' => $id));
-    //   $item = $req->fetch();
-    //   if (isset($item['id'])) {
-    //     return new Post($item['id'], $item['title'], $item['content']);
-    //   }
-    //   return null;
+  
   }
 
   static function createQuestion($question)
   {
     $db = DB::getInstance();
-    $sql = "INSERT INTO question (patientLoginName,questionTitle,questionDetail) VALUES ('". $_SESSION['username']  . "' , '" . $question['questionTitle'] . "' , '" . $question['questionDetail']." ')";
+    if( isset($question['doctorLoginName'])){
+      $sql = "INSERT INTO question (patientLoginName,questionTitle,questionDetail,doctorLoginName) VALUES ('". $_SESSION['username']  . "' , '" . $question['questionTitle'] . "' , '" . $question['questionDetail']."' , '" .$question['doctorLoginName']. "' )";
+    }else{
+      $sql = "INSERT INTO question (patientLoginName,questionTitle,questionDetail) VALUES ('". $_SESSION['username']  . "' , '" . $question['questionTitle'] . "' , '" . $question['questionDetail']." ')";
+    }
     $db->exec($sql);
   }
 
+  static function answer($data)
+  {
+    $db =DB::getInstance();
+    $sql = "UPDATE question SET answer='".$data['answer']."', doctorLoginName='".$_SESSION[username]."' WHERE questionID =".$data['id'];
+    $db->exec($sql);
+  }
 }
