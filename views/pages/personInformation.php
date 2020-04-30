@@ -1,13 +1,16 @@
 
 <div style="border-radius: 0.5rem" class="container bg-light">
-  <h2>Thông tin tài khoản</h2>
+  <h2 style="padding-top:10px">Thông tin tài khoản</h2>
     <div class="col-md-6">
-          <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <ul class="nav nav-tabs " id="myTab" role="tablist">
               <li class="nav-item">
-                  <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">Thông tin cá nhân</a>
+                  <a class="nav-link active text-info" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">Thông tin cá nhân</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" id="question-tab" data-toggle="tab" href="#question" role="tab" aria-controls="question" aria-selected="false">Câu hỏi của tôi</a>
+                  <a class="nav-link text-info" id="question-tab" data-toggle="tab" href="#question" role="tab" aria-controls="question" aria-selected="false">Câu hỏi của tôi</a>
+              </li>
+              <li class="nav-item">
+                <a href="#booking" id="booking-tab" data-toggle="tab" role="tab" aria-controls="booking" aria-selected="false" class="nav-link text-info">Lịch khám</a>
               </li>
           </ul>
     </div>
@@ -15,7 +18,7 @@
         <div style="background: #fff; border-radius: 1rem " class="col-md-12"> 
             <div class="tab-content profile-tab" id="myTabContent">
                 <div style="margin-left:10px" class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                <?php if($_SESSION['type'] == 'patient'){ ?>
+                    <?php if($_SESSION['type'] == 'patient'){ ?>
                             <div style="border-radius: 0.5rem; background: #17a2b8" class="row">
                                 <div class="col-md-3">
                                     <label>Họ</label>
@@ -131,56 +134,12 @@
                             </div>
                       <?php }}} ?>
                 </div>
+                <div class="tab-pane fade" id="booking" role="tabpanel" aria-labellebly="booking-tab">
+                    <div class="row">
+                                
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>     
-      
-      
-      <?php
-    
-//       if( isset($data[0]))
-//         echo "
-// <table >
-//  <tr id='FirtName'>
-//     <th>Firt Name:</th>
-//     <td>".$data[0]['firstName']."</td>
-//   </tr>
-//   <tr id='LastName'>
-//     <th>Last Name:</th>
-//     <td>".$data[0]['lastName']."</td>
-//   </tr>
-//   <tr id='Age'>
-//     <th>Age:</th>
-//     <td>".$data[0]['age']."</td>
-//   </tr>
-//   <tr id='Weight'>
-//     <th>Weight:</th>
-//     <td>".$data[0]['age']."</td>
-//   </tr>
-//   <tr id='Height'>
-//     <th>Height:</th>
-//     <td>".$data[0]['height']."</td>
-//   </tr>
-//   <tr id='Sex'>
-//     <th>Sex</th>
-//     <td>".$data[0]['sex']."</td>
-//   </tr>
-//   <tr id='BloodGroup'>
-//     <th>BloodGroup</th>
-//     <td>".$data[0]['bloodGroup']."</td>
-//   </tr>
-//   <tr id='Contact-no'>
-//     <th>Contact-no:</th>
-//     <td>".$data[0]['contact-no']."</td>
-//   </tr>
-//   <tr id='Address'>
-//     <th>Address</th>
-//     <td>".$data[0]['address']."</td>
-//   </tr>
-// </table>
-//    "; else echo"Khogn ton tai";
-  ?>
-
-
-
