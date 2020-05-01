@@ -17,13 +17,13 @@
     <div class="row">
         <div style="background: #fff; border-radius: 1rem " class="col-md-12"> 
             <div class="tab-content profile-tab" id="myTabContent">
-                <div style="margin-left:10px" class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <div style="margin-left:40px" class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     <?php if($_SESSION['type'] == 'patient'){ ?>
-                            <div style="border-radius: 0.5rem; background: #17a2b8" class="row">
+                        <div style="border-radius: 0.5rem; background: #17a2b8" class="row">
                                 <div class="col-md-3">
                                     <label>Họ</label>
                                 </div>
-                                <div class="col-md-6">
+                                <div style="border-radius: 5rem" class="col-md-6">
                                     <p><?php echo $data['info']['firstName'] ?></p>
                                 </div>
                             </div>
@@ -137,8 +137,8 @@
                             ?>
                               <div class="row">
                                 <div class="col-md"></div>
-                                <div style="border-radius: 0.5rem; margin: 15px 40px 15px 40px" class="col-md-1 bg-warning text-right">
-                                    <a href="?controller=advisory&action=answer&id=<?php echo $question['questionID'] ?>">Trả lời</a>
+                                <div style="border-radius: 0.5rem; margin: 15px 40px 15px 40px" class="col-md-1 bg-warning text-center">
+                                    <a class="text-dark" href="?controller=advisory&action=answer&id=<?php echo $question['questionID'] ?>">Trả lời</a>
                                 </div>
                               </div>
                             <?php
