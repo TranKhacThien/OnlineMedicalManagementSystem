@@ -117,22 +117,33 @@
                               if( isset($question['questionDetail'])){          
                       ?>
                             <div class="row">
-                              <div class="col-md-8">
-                                <div class='col-sm-4'></div>
-                                <div style="border-radius: 0.5rem; margin-bottom: 10px" class="col-md-10 bg-info text-light">
+                                <!-- <div class='col-sm-1 bg-danger'></div> -->
+                                <div style="border-radius: 0.5rem; margin: 15px 40px 15px 40px" class="col-md-8 bg-info text-light">
                                     <label>Tiêu đề : <?php echo $question['questionTitle'] ?></label><br>
                                     <p>Nội dung : <?php echo $question['questionDetail'] ?></p>
                                 </div>
-                              </div>
                             </div>
                             <?php if(isset($question['answer'])){ ?>
-                            <div class="row">
-                              <div class="col-md"></div>
-                                <div style="border-radius: 0.5rem; margin-bottom: 10px; margin-right:10px" class="col-md-8 bg-warning ">
-                                    <p><?php echo $question['answer'] ?></p>
+                              <div class="row">
+                                <div class="col-md"></div>
+                                  <div style="border-radius: 0.5rem; margin: 15px 40px 15px 40px" class="col-md-8 bg-warning ">
+                                      <p><?php echo $question['answer'] ?></p>
+                                  </div>
+                              </div>
+                            <?php
+                               }
+                               elseif($_SESSION['type']=='doctor')
+                               { 
+                            ?>
+                              <div class="row">
+                                <div class="col-md"></div>
+                                <div style="border-radius: 0.5rem; margin: 15px 40px 15px 40px" class="col-md-1 bg-warning text-right">
+                                    <a href="?controller=advisory&action=answer&id=<?php echo $question['questionID'] ?>">Trả lời</a>
                                 </div>
-                            </div>
-                      <?php }}} ?>
+                              </div>
+                            <?php
+                              }}} 
+                            ?>
                 </div>
                 <div class="tab-pane fade" id="booking" role="tabpanel" aria-labellebly="booking-tab">
                     <div class="row">
