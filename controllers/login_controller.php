@@ -39,3 +39,4 @@
                 header('Location: index.php');
         }
     }
+    ?>

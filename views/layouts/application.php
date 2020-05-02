@@ -41,9 +41,10 @@
                 else{
                     $advisory = 'showQuestions';
                 }
-                echo   "<a href='#' class='list-group-item list-group-item-action bg-light'>Đặt lịch</a>
+                echo   "<a href='index.php?controller=booking&action=book' class='list-group-item list-group-item-action bg-light'>Đặt lịch</a>
                         <a href='index.php?controller=advisory&action=".$advisory."' class='list-group-item list-group-item-action bg-light'>Hỏi đáp</a>
                         <a href='#' class='list-group-item list-group-item-action bg-light'>Báo cáo</a>
+                        <a href='#' class='list-group-item list-group-item-action bg-light'>Phàn nàn</a>
                     </div>
     
                 </div>";
