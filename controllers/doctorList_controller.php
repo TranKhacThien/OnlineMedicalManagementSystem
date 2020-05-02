@@ -24,3 +24,4 @@
             $this->render('doctorList',$data);
         }
     }
+    ?>

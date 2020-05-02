@@ -14,3 +14,4 @@ if (isset($_GET['controller'])) {
 }
 //session_start();
 require_once('routers.php');
+?>

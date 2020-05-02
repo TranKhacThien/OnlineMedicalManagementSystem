@@ -21,3 +21,4 @@
                 $this->render('personInformation',$data);
             }
     }
+?>

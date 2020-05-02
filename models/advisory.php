@@ -47,3 +47,4 @@ class Advisory
     $db->exec($sql);
   }
 }
+?>
