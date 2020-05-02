@@ -15,83 +15,86 @@
           </ul>
     </div>
     <div class="row">
-        <div style="background: #fff; border-radius: 1rem " class="col-md-12"> 
+        <div style="background: #fff; border-radius: 1rem" class="col-md-12"> 
             <div class="tab-content profile-tab" id="myTabContent">
-                <div style="margin-left:40px" class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <div  class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     <?php if($_SESSION['type'] == 'patient'){ ?>
-                        <div style="border-radius: 0.5rem; background: #17a2b8" class="row">
-                                <div class="col-md-3">
-                                    <label>Họ</label>
-                                </div>
-                                <div style="border-radius: 5rem" class="col-md-6">
-                                    <p><?php echo $data['info']['firstName'] ?></p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label>Tên</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p><?php echo $data['info']['lastName'] ?></p>
-                                </div>
-                            </div>
-                            <div style="border-radius: 0.5rem; background: #17a2b8" class="row">
-                                <div class="col-md-3">
-                                    <label>Giới tính</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p><?php echo $data['info']['sex'] ?></p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label>Tuổi</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p><?php echo $data['info']['age'] ?></p>
-                                </div>
-                            </div>
-                            <div style="border-radius: 0.5rem; background: #17a2b8" class="row">
-                                <div class="col-md-3">
-                                    <label>Cân nặng (kg)</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p><?php echo $data['info']['weight'] ?></p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label>Chiều cao (cm)</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p><?php echo $data['info']['height'] ?></p>
-                                </div>
-                            </div>
-                            <div style="border-radius: 0.5rem; background: #17a2b8" class="row">
-                                <div class="col-md-3">
-                                    <label>Nhóm máu</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p><?php echo $data['info']['bloodGroup'] ?></p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label>Số điện thoại</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p><?php echo $data['info']['contact-no'] ?></p>
-                                </div>
-                            </div>
-                            <div style="border-radius: 0.5rem; background: #17a2b8" class="row">
-                                <div class="col-md-3">
-                                    <label>địa chỉ</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <p><?php echo $data['info']['address'] ?></p>
-                                </div>
-                            </div>
+                                <!-- Hiển thị thông tin người dùng -->
+                            <form style="margin-left:20px" id="changeInf" action="index.php?controller=getInf&action=changeInf" method="post" class="form-validate form-horizontal well" enctype="multipart/form-data">
+                                <fieldset>
+                                    <?php
+                                        if( isset($data['notification']))
+                                        echo '<p>'.$data['notification'].'</p>';
+                                    ?>
+                                    <div class="form-group">
+                                        <label for="firstName">Họ *</label>
+                                        <input type="text" class="form-control" name="firstName" value="<?php echo $data['info']['firstName'] ?>">
+                                    </div>
+
+                                    <div class='form-group'>
+                                        <label for="lastName">Tên *</label>
+                                        <input type="text" class="form-control "name='lastName' value="<?php echo $data['info']['lastName'] ?>">
+                                    </div>
+
+                                    <div class='form-group'>
+                                        <label for="sex">Giới tính *</label>
+                                        <select class="form-control "name='sex'>
+                                            <option value="<?php echo $data['info']['sex'] ?>"><?php echo $data['info']['sex'] ?></option>
+                                            <option value="Nam">Nam</option>
+                                            <option value="Nữ">Nữ</option>
+                                            <option value="Khác">Khác</option>
+                                        </select>
+                                    </div>
+
+                                    <div class='form-group'>
+                                        <label for="age">Tuổi *</label>
+                                        <input type="number" class="form-control"name='age' value="<?php echo $data['info']['age'] ?>" min=0 max=150>
+                                    </div>
+                                    <div class='form-group'>
+                                        <label for="height">Chiều cao *</label>
+                                        <input type="number" class="form-control "name='height' value="<?php echo $data['info']['height'] ?>" min=0 max=250> 
+                                    </div>
+                                    <div class='form-group'>
+                                        <label for="weight">Cân nặng *</label>
+                                        <input type="number" class="form-control"name='weight' value="<?php echo $data['info']['weight'] ?>" min=0 max=300>
+                                    </div>
+                                    <div class='form-group'>
+                                        <label for="bloodGroup">Nhóm máu *</label>
+                                        <select class="form-control" name='bloodGroup'>
+                                            <option value="<?php echo $data['info']['bloodGroup'] ?>"><?php echo $data['info']['bloodGroup'] ?></option>
+                                            <option value="A">A</opt>
+                                            <option value="B">B</option>
+                                            <option value="AB">AB</option>
+                                            <option value="O">O</option>
+                                        </select>
+                                    </div>
+                                    <div class='form-group'>
+                                        <label for="contactNo">Số điện thoại *</label>
+                                        <input type="tel" class="form-control"name='contactNo' value="<?php echo $data['info']['contact-no'] ?>" pattern="[0-9]{10}">
+                                    </div>
+                                    <div class='form-group'>
+                                        <label for="address">Địa chỉ *</label>
+                                        <input type="text" class="form-control "name='address' value="<?php echo $data['info']['address'] ?>">
+                                    </div>
+                                    
+                                    <div style="margin-bottom: 40px" class='form-group'>
+                                        <label for="currentPassword">Mật khẩu hiện tại *</label>
+                                        <input type='password' class="form-control " name='currentPassword' placeholder='Mật khẩu hiện tại'>
+                                    </div>
+                                    <div class='form-group'>
+                                        <label for="newPassword">Mật khẩu mới *</label>
+                                        <input type="password" class="form-control "name='newPassword' placeholder='Mật khẩu mới'>
+                                    </div>
+
+                                    <div style="margin-top:30px" class="d-flex justify-content-between align-items-center">
+                                        <div class="form-group d-flex justify-content-start">
+                                            <button type="submit" class="btn btn-primary"name='changeInf' value='Lưu thay đổi'>Lưu thay đổi</button>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
                 <?php }else{ ?>
+                            <!-- Hiển thị thông tin bác sỹ -->
                             <div class="row">
                                 <div class="col-md-6"><label>Họ và tên</label></div>
                                 <div class="col-md-6 text-left "><?php echo $data['info']['doctorName'] ?></div>
@@ -110,6 +113,7 @@
                             </div>
                 <?php } ?>
                 </div>
+                <!-- Hiển thị danh sách câu hỏi và câu trả lời  -->
                 <div class="tab-pane fade" id="question" role="tabpanel" aria-labelledby="question-tab">
                       <?php 
                           $questions = $data['question'];
@@ -145,6 +149,7 @@
                               }}} 
                             ?>
                 </div>
+                <!-- Hiển thị lịch khám  -->
                 <div class="tab-pane fade" id="booking" role="tabpanel" aria-labellebly="booking-tab">
                     <div class="row">
                                 
