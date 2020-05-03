@@ -8,7 +8,7 @@
             // TODO: Implement __destruct() method.
         }
         static function book($input) {
-        	session_start();
+        	
         	$loginName = $_SESSION['username'] ;
             $loginType = $_SESSION['type'];
         	$db = DB::getInstance();
