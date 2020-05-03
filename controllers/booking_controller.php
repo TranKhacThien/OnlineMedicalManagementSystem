@@ -35,7 +35,7 @@
                 
                 else{
                     booking::book($this->input);
-                    $this->result = 'Bạn có lịch khám vào lúc'. $this->input['time'] .' - ' . $this->input['date'];
+                    $this->result = 'Bạn có lịch khám vào lúc  '. $this->input['time'] .' - ' . $this->input['date'];
                 }
            
             }
