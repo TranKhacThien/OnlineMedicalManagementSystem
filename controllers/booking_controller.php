@@ -32,13 +32,16 @@
                 if($this->isNull()){
                     $this->result = 'Bạn chưa nhập đủ thông tin';
                 }
-                
+                elseif( booking::exist($this->input)){
+                    $this->result = 'Bác sĩ đã có lịch khám trong khoảng thời gian này';
+                }
                 else{
                     booking::book($this->input);
                     $this->result = 'Bạn có lịch khám vào lúc  '. $this->input['time'] .' - ' . $this->input['date'];
                 }
            
             }
+            if(isset($_GET['doctor'])) $data['schedule'] = booking::schedule('doctor',$_GET['doctor']);
             $data['result'] = $this->result;
             $this->render('booking', $data);
     	}

@@ -30,7 +30,7 @@
                                         ?>        
                                     </p>
                                     <a class='btn btn-primary' href='?controller=advisory&action=creQuestion&name=<?php echo $data[$i]['doctorLoginName']; ?>'>Đặt câu hỏi</a><br><br>
-                                    <a class='btn btn-primary' href='#'>Đặt lịch khám</a>
+                                    <a class='btn btn-primary' href='?controller=booking&action=book&doctor=<?php echo $data[$i]['doctorLoginName']?>'>Đặt lịch khám</a>
                                 </div>
                             </div>                            
                             <hr>
