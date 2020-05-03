@@ -26,28 +26,30 @@
     <body style="background: url('image/background3.jpg') no-repeat center center fixed" >
         <div class="d-flex" id="wrapper">
         <?php
-            
             if( isset($_SESSION['username'])){
-                echo "<div class='bg-light border-right' id='sidebar-wrapper'>
-                    <div class='sidebar-heading'> <a href='' class='text-dark page-item'><img src='image/home.png' title='home' width='200' height='100'></a>  </div>
-                    <div class='list-group list-group-flush'>";
-
-                if( $_SESSION['type'] == 'patient') {
+        ?>
+                <div class='bg-light border-right' id='sidebar-wrapper'>
+                <div class='sidebar-heading'> <a href='?' class='text-dark page-item'><img src='image/home.png' title='home' width='200' height='100'></a>  </div>
+                <div class='list-group list-group-flush'>
+        <?php
+            if( $_SESSION['type'] == 'patient'){
                     $advisory = 'creQuestion';
-                    echo "<a href='views/pages/contact.php' class='list-group-item list-group-item-action bg-light'>Giới thiệu</a>
-                        <a href='#' class='list-group-item list-group-item-action bg-light'>Tin tức</a>
-                        <a href='index.php?controller=doctorList&action=showList' class='list-group-item list-group-item-action bg-light'>Đội ngũ y tế</a>";
-                }
-                else{
-                    $advisory = 'showQuestions';
-                }
-                echo   "<a href='index.php?controller=booking&action=book' class='list-group-item list-group-item-action bg-light'>Đặt lịch</a>
-                        <a href='index.php?controller=advisory&action=".$advisory."' class='list-group-item list-group-item-action bg-light'>Hỏi đáp</a>
-                        <a href='#' class='list-group-item list-group-item-action bg-light'>Báo cáo</a>
-                        <a href='#' class='list-group-item list-group-item-action bg-light'>Phàn nàn</a>
-                    </div>
+        ?>
+                <a href='#' class='list-group-item list-group-item-action bg-light'>Tin tức</a>
+                <a href='?controller=doctorList&action=showList' class='list-group-item list-group-item-action bg-light'>Đội ngũ y tế</a>
+        <?php
+            }
+            else{
+                $advisory = 'showQuestions';
+            }
+        ?>
+                <a href='?controller=booking&action=book' class='list-group-item list-group-item-action bg-light'>Đặt lịch</a>
+                <a href='?controller=advisory&action=<?php echo $advisory?>' class='list-group-item list-group-item-action bg-light'>Hỏi đáp</a>
+                <a href='#' class='list-group-item list-group-item-action bg-light'>Báo cáo</a>
+                </div>
     
-                </div>";
+        </div>
+        <?php
             }
         ?>
             <div id="page-content-wrapper">
