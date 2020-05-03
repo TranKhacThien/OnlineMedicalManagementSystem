@@ -12,7 +12,7 @@
             
                 <?php
                     if( isset( $data['notification'] ) ){
-                        echo"<div>" . $data['notification'] . "</div>";
+                        echo"<div  class='text-danger'>" . $data['notification'] . "</div>";
                     }
                 ?>
             

@@ -16,5 +16,10 @@ class getInformation{
                 return $info ;
              
     }
+    public static function ChangeInf($input){
+        $db=DB::getInstance();
+        $sql = " UPDATE `patient` SET `password` = '".$input['newPassword'] ."', `firstName` = '". $input['firstName'] ."',`lastName`='".$input['lastName']."', `contact-no` = '".$input['contactNo']."', `address` = '".$input['address']."', `height` = '".$input['height']."', `weight` = '".$input['weight']."', `sex` = '".$input['sex']."', `age`='".$input['age']."', `bloodGroup` = '".$input['bloodGroup']."' WHERE `patient`.`patientLoginName` = '".$_SESSION['username']."'";
+        $db->exec($sql);
+      }
 }
 ?> 

@@ -52,7 +52,7 @@
                 </div>
                 <div class='form-group'>
                     <label for="contactNo">Số điện thoại *</label>
-                    <input type="tel" class="form-control"name='contactNo' placeholder='Số điện thoại' pattern="[0-9]{3}[0-9]{3}[0-9]{4}">
+                    <input type="tel" class="form-control"name='contactNo' placeholder='012-345-6789' pattern="[0-9]{3}[0-9]{3}[0-9]{4}">
                 </div>
                 <div class='form-group'>
                     <label for="address">Địa chỉ *</label>

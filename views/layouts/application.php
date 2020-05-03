@@ -14,11 +14,11 @@
     <?php
         if( isset($_SESSION['username'])){
     ?>
-            <body style="background: url('image/background.jpg') no-repeat center center fixed" >
+            <body style="background: url('image/background.jpg')  center fixed" >
     <?php
         }else{
     ?>
-            <body style="background: url('image/background3.jpg') no-repeat center center fixed" >
+            <body style="background: url('image/background3.jpg')  center fixed" >
     <?php        
         }
     ?>
@@ -81,15 +81,17 @@
                                 </li>
                                 <li class="nav-item dropdown">
                                     <?php
-                                    if( isset($_SESSION['username'])){
-                                        echo   "<a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-                                                    ".$_SESSION['username']."
-                                                </a>
-                                                <div class='dropdown-menu dropdown-menu-right' aria-labelledby='navbarDropdown'>
-                                                   <a class='dropdown-item' href='index.php?controller=getInf&action=showInf'>Thông tin tài khoản</a>            
-                                                    <a class='dropdown-item' href='index.php?controller=login&action=logout'>Đăng xuất</a>
-                                                </div>";
-                                    }
+                                        if( isset($_SESSION['username'])){
+                                    ?>
+                                        <a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                                            <?php echo $_SESSION['username'] ?>
+                                        </a>
+                                        <div class='dropdown-menu dropdown-menu-right' aria-labelledby='navbarDropdown'>
+                                            <a class='dropdown-item' href='index.php?controller=getInf&action=showInf'>Thông tin tài khoản</a>            
+                                            <a class='dropdown-item' href='index.php?controller=login&action=logout'>Đăng xuất</a>
+                                        </div>
+                                    <?php
+                                        }
                                     ?>
 
                                 </li>
@@ -104,12 +106,15 @@
             </div>
         </div>
         <?php
-            if( isset($_SESSION['username'])) 
-                echo"<footer style='position: static;margin-top: 10px; bottom:0; width: 100%' class='py-3 bg-dark'>
-                        <div class='container'>
-                            <p class=' text-center text-white'>Copyright &copy; Your Website 2020</p>
-                        </div>
-                    </footer>";
+            if( isset($_SESSION['username'])){
+        ?>
+                <footer style='position: static;margin-top: 10px; bottom:0; width: 100%' class='py-3 bg-dark'>
+                    <div class='container'>
+                        <p class=' text-center text-white'>Copyright &copy; Your Website 2020</p>
+                    </div>
+                </footer>
+        <?php
+            }
         ?>
         <!-- Bootstrap core JavaScript -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

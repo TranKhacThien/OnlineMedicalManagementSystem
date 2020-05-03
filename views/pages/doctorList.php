@@ -6,7 +6,7 @@
                     for( $i = 0; $i < 5; $i++){
                         if( isset($data[$i])){
                 ?>        
-                        <div class='container'>                    
+                        <div style='border-radius: 0.5rem' class='container bg-light'>                    
                             <div class='row'>
                                 <div class='col-md-4'>
                                     <a href='#'>

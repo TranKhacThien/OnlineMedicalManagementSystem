@@ -16,7 +16,7 @@ class Advisory
     }
     elseif($target == 'all')
     {
-      $req = $db->prepare('SELECT * FROM question WHERE answer IS NULL LIMIT '. (($page-1)*5) .' , 5');
+      $req = $db->prepare('SELECT * FROM question WHERE doctorLoginName IS NULL LIMIT '. (($page-1)*5) .' , 5');
     }
     else{
       $req = $db->prepare("SELECT * FROM question WHERE questionID =".$target);

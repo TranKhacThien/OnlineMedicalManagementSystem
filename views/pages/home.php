@@ -2,34 +2,7 @@
 
     <div class="row">
 
-
-        <!-- <div class="col-md-8">
-
-    
-            <div class="card my-4">
-                <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
-                <div class="card-body">
-                    <h2 class="card-title"> Câu hỏi / Tag </h2>
-                    <p class="card-text">Nội dung câu hỏi</p>
-                    <a href="#" class="btn btn-primary"> Chi tiết &rarr;</a>
-                </div>
-                <div class="card-footer text-muted">
-                    Posted on January 1, 2017 by
-                </div>
-            </div>
-        
-
-            <ul class="pagination justify-content-center mb-4">
-                <li class="page-item">
-                    <a class="page-link" href="#">&larr; Trước</a>
-                </li>
-                <li class="page-item disabled">
-                    <a class="page-link" href="#">Sau &rarr;</a>
-                </li>
-            </ul>
-
-        </div> -->
-        <div class="col-md-8">
+    <div class="col-md-8">
             <ul class="list-group">
                 <li class="list-group-item">
 
@@ -65,7 +38,21 @@
                 </li>
             </ul>
         </div>
+        
         <div class="col-md-4">
+            <div class="card my-4">
+                <h5 class="card-header">Tin tức</h5>
+                <div class="card-body">
+                    <?php
+                        // $url='http://www.hspi.org.vn/vcl/d67';
+                        // $lines_array=file($url); 
+                        // for( $i=450; $i<700; $i++){
+                        //         if( strpos($lines_array[$i],"HREF") == false and strpos($lines_array[$i],"SRC") == false )
+                        //         echo $lines_array[$i];
+                        // }         
+                    ?>
+                </div>
+            </div>
 
             <div class="card my-4">
                 <h5 class="card-header">Tìm kiếm</h5>
