@@ -18,15 +18,24 @@
             
             <div class="form-group">
                 <label for='questionTitle' class="text-dark">Chủ đề:</label><br>
-                <input type="text" name="questionTitle" class="form-control">
+                <input type="text" name="questionTitle" class="form-control" <?php if(isset($data['question'])) echo "value='".$data['question']['questionTitle']."'" ?>>
             </div>
             <div class="form-group">
                 <label for="questionDetail" class="text-dark">Nội dung câu hỏi:</label><br>
-                <textarea class="form-control" rows="4" name="questionDetail" class="form-control"></textarea>
+                <textarea class="form-control" rows="4" name="questionDetail" class="form-control" ><?php if(isset($data['question'])) echo $data['question']['questionDetail'] ?></textarea>
             </div>
             <div class="form-group text-light">
                 <input class="btn btn-info btn-md" type="submit" name="advisory" value="Gửi">
             </div>
+            <?php
+                if(isset($data['question'])){
+            ?>
+                 <div class="text-right">
+                    <input type=submit class="btn btn-info btn-sm" name="advisory" value="Xóa câu hỏi"></input>
+                </div>
+            <?php
+                }
+            ?>
         </form>
     </div>
 </div>

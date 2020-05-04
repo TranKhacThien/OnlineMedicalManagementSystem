@@ -95,19 +95,19 @@
                             </form>
                 <?php }else{ ?>
                             <!-- Hiển thị thông tin bác sỹ -->
-                            <div class="row">
+                            <div class="row bg-info">
                                 <div class="col-md-6"><label>Họ và tên</label></div>
                                 <div class="col-md-6 text-left "><?php echo $data['info']['doctorName'] ?></div>
                             </div>
-                            <div class="row bg-info">
+                            <div class="row ">
                                 <div class="col-md-6"><label>Chuyên khoa</label></div>
                                 <div class="col-md-6 text-left "><?php echo $data['info']['specialization'] ?></div>
                             </div>
-                            <div class="row">
+                            <div class="row bg-info">
                                 <div class="col-md-6"><label>Bằng cấp chuyên môn</label></div>
                                 <div class="col-md-6 text-left "><?php echo $data['info']['qualification']?></div>
                             </div>
-                            <div class="row bg-info">
+                            <div class="row ">
                                 <div class="col-md-6"><label>Nơi làm việc</label></div>
                                 <div class="col-md-6 text-left "><?php echo $data['info']['hospital'] ?></div>
                             </div>
@@ -125,6 +125,13 @@
                                 <div style="border-radius: 0.5rem; margin: 15px 40px 15px 40px" class="col-md-8 bg-info text-light">
                                     <label>Tiêu đề : <?php echo $question['questionTitle'] ?></label><br>
                                     <p>Nội dung : <?php echo $question['questionDetail'] ?></p>
+                                    <?php
+                                        if( !isset($question['answer']) and $_SESSION['type'] == 'patient'){
+                                    ?>
+                                        <a class="text-dark" href="?controller=advisory&action=creQuestion&id=<?php echo $question['questionID'] ?>">chỉnh sửa</a>
+                                    <?php
+                                        }
+                                    ?>
                                 </div>
                             </div>
                             <?php if(isset($question['answer'])){ ?>
@@ -151,9 +158,34 @@
                 </div>
                 <!-- Hiển thị lịch khám  -->
                 <div class="tab-pane fade" id="booking" role="tabpanel" aria-labellebly="booking-tab">
-                    <div class="row">
-                                
+                   
+                    <div class="row bg-info">
+                        <div class="col-md-3"><label>Ngày</label></div>
+                        <div class="col-md-3"><label>Giờ</label></div>
+                        <div class="col-md-3"></div>
                     </div>
+        
+                    <?php 
+                        $schedules = $data['schedule'];
+                        foreach($schedules as $schedule ){           
+                    ?>
+                    <div class="row bg-light">
+                        <div class="col-md-3"><?php echo $schedule['dateBooking'] ?></div>
+                        <div class="col-md-3"><?php echo $schedule['timeBooking'] ?></div>
+                        <?php
+                            if($_SESSION['type'] == 'patient'){
+                        ?>
+                        <form class="row bg-light" action="" method="post">
+                            <input type="hidden" name="id" value="<?php echo $schedule['bookingID'] ?>">
+                            <div class="col-md-3"><input type="submit" class="btn btn-sm text-danger" name="delete" value="Hủy lịch khám" ></input></div>
+                        </form>
+                        <?php } ?>
+                    </div>
+                        
+                    <?php
+                        }
+                    ?>
+                
                 </div>
             </div>
         </div>

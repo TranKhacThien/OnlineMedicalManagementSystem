@@ -38,7 +38,7 @@
 							<?php
 									foreach( $schedules as $schedule){
 							?>
-								<div style="margin: 10px 0px 10px 50px; width:300px" class="form-control">
+								<div style="margin: 10px 0px 10px 50px; width:350px" class="form-control">
 									<h9><?php echo $schedule['timeBooking']." _ ".$schedule['dateBooking'] ?></h9>
 								</div>
 							<?php

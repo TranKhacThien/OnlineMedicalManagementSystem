@@ -6,7 +6,7 @@ class Advisory
 
   }
 
-  static function showQuestions($target,$page)
+  static function getQuestions($target,$page)
   {
     $list = [];
     $db = DB::getInstance();
@@ -32,7 +32,10 @@ class Advisory
   static function createQuestion($question)
   {
     $db = DB::getInstance();
-    if( isset($question['doctorLoginName'])){
+    if( isset($question['questionID'])){
+      $sql = "UPDATE question SET questionTitle = '". $question['questionTitle'] ."', questionDetail = '".$question['questionDetail']."' WHERE questionID =".$question['questionID'];
+    }
+    elseif( isset($question['doctorLoginName'])){
       $sql = "INSERT INTO question (patientLoginName,questionTitle,questionDetail,doctorLoginName) VALUES ('". $_SESSION['username']  . "' , '" . $question['questionTitle'] . "' , '" . $question['questionDetail']."' , '" .$question['doctorLoginName']. "' )";
     }else{
       $sql = "INSERT INTO question (patientLoginName,questionTitle,questionDetail) VALUES ('". $_SESSION['username']  . "' , '" . $question['questionTitle'] . "' , '" . $question['questionDetail']." ')";
@@ -46,5 +49,11 @@ class Advisory
     $sql = "UPDATE question SET answer='".$data['answer']."', doctorLoginName='".$_SESSION[username]."' WHERE questionID =".$data['id'];
     $db->exec($sql);
   }
+  static function deleteQuestion($id){
+    $db= DB::getInstance();
+    $sql = "DELETE FROM question WHERE questionID=". $id ;
+    $db->exec($sql);
+  }
+
 }
 ?>

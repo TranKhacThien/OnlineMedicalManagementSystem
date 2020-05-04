@@ -2,6 +2,7 @@
     require_once 'controllers/base_controller.php';
     require_once 'models/getInf_models.php';
     require_once 'models/advisory.php';
+    require_once 'models/booking.php';
     class GetInfController extends BaseController
     {
             private $notification;
@@ -19,10 +20,15 @@
 
             }
             public function showInf(){
+                if(isset($_POST['delete'])){
+                    booking::delete($_POST['id']);
+                }
                 $info=$this->information[0];
-                $questions=Advisory::showQuestions('myQuestion',0);
+                $questions=Advisory::getQuestions('myQuestion',0);
+                $schedule =booking::schedule($_SESSION['type'],$_SESSION['username']);
                 $this->data['info']=$info;
                 $this->data['question']=$questions;
+                $this->data['schedule']=$schedule;
                 $this->render('personInformation',$this->data);
             }
             public function changeInf(){

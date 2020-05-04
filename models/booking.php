@@ -45,5 +45,10 @@
             $list = $req->fetchAll();
             return $list;
         }
+        static function delete($id){
+            $db= DB::getInstance();
+            $sql = "DELETE FROM booking WHERE bookingID=". $id ;
+            $db->exec($sql);
+        }
  	}
 ?>
