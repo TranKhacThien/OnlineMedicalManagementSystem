@@ -37,13 +37,14 @@
         ?>
                 <a href='#' class='list-group-item list-group-item-action bg-light'>Tin tức</a>
                 <a href='?controller=doctorList&action=showList' class='list-group-item list-group-item-action bg-light'>Đội ngũ y tế</a>
+                <a href='?controller=booking&action=book' class='list-group-item list-group-item-action bg-light'>Đặt lịch</a>
+
         <?php
             }
             else{
                 $advisory = 'showQuestions';
             }
         ?>
-                <a href='?controller=booking&action=book' class='list-group-item list-group-item-action bg-light'>Đặt lịch</a>
                 <a href='?controller=advisory&action=<?php echo $advisory?>' class='list-group-item list-group-item-action bg-light'>Hỏi đáp</a>
                 <a href='#' class='list-group-item list-group-item-action bg-light'>Báo cáo</a>
                 </div>

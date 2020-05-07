@@ -42,7 +42,13 @@ class AdvisoryController extends BaseController
       }
     }
     $data['notification'] = $notification;
-    $this->render('creQuestion',$data);
+    if(isset($_SESSION['username'])){
+        $this->render('creQuestion',$data);
+    }
+    else{
+        header('Location: index.php');
+    }
+   
   }
   public function showQuestions() 
   {// xem các câu hỏi chưa được trả lời 
@@ -71,10 +77,15 @@ class AdvisoryController extends BaseController
         }
         $id = $data['id'];
         $data['question']=Advisory::getQuestions($id,0);
-        $this->render('answer',$data);
-      }else{
-        header('Location: index.php');
-      }
+          if(isset($_SESSION['username'])){
+              $this->render('answer',$data);
+          }
+          else{
+              header('Location: index.php');
+          }
+        }else{
+          header('Location: index.php');
+        }
   }
 }
 ?>

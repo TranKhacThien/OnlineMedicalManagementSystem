@@ -29,7 +29,13 @@
                 $this->data['info']=$info;
                 $this->data['question']=$questions;
                 $this->data['schedule']=$schedule;
-                $this->render('personInformation',$this->data);
+                if(isset($_SESSION['username'])){
+                    $this->render('personInformation',$this->data);
+                }
+                else{
+                    header('Location: index.php');
+                }
+                
             }
             public function changeInf(){
                 if(isset($_REQUEST['changeInf'])){

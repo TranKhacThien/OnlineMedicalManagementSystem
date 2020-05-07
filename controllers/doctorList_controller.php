@@ -21,7 +21,13 @@
             }
             $list = Doctor::getList($page);
             $data = $list;
-            $this->render('doctorList',$data);
+            
+            if(isset($_SESSION['username'])){
+                $this->render('doctorList',$data);
+            }
+            else{
+                header('Location: index.php');
+            }
         }
     }
     ?>

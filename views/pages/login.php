@@ -27,7 +27,7 @@
                                <input class="btn btn-info btn-md" type='submit' name="login" id="login" value='Đăng nhập' >
                             </div>
                             <div id="register-link" class="text-right">
-                                <a href="index.php?controller=registration&action=registration" class="text-light">Đăng ký</a>
+                                <a href="index.php?controller=registration&action=registration" class="text-dark">Đăng ký</a>
                             </div>
                         </form>
                     </div>

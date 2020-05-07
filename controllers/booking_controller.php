@@ -43,7 +43,12 @@
             }
             if(isset($_GET['doctor'])) $data['schedule'] = booking::schedule('doctor',$_GET['doctor']);
             $data['result'] = $this->result;
-            $this->render('booking', $data);
+            if(isset($_SESSION['username'])){
+                $this->render('booking',$data);
+            }
+            else{
+                header('Location: index.php');
+            }
     	}
 
     }
