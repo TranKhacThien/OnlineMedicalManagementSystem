@@ -14,11 +14,11 @@
     <?php
         if( isset($_SESSION['username'])){
     ?>
-            <body style="background: url('image/background.jpg')  center fixed" >
+            <body style="background: url('image/background.jpg')  center fixed ;background-size: cover" >
     <?php
         }else{
     ?>
-            <body style="background: url('image/background3.jpg')  center fixed" >
+            <body style="background: url('image/background3.jpg')  center fixed ;background-size: cover" >
     <?php        
         }
     ?>
