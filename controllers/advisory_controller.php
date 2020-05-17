@@ -73,7 +73,7 @@ class AdvisoryController extends BaseController
         if( isset($_POST['submit'])){
           $data['answer'] = $_POST['answer'];
           Advisory::answer($data);
-          header('Location: index.php/controller=advisory&action=showQuestions');
+          header('Location: index.php?controller=advisory&action=showQuestions');
         }
         $id = $data['id'];
         $data['question']=Advisory::getQuestions($id,0);
