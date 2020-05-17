@@ -11,11 +11,11 @@
                             ?>
                             <div class="form-group">
                                 <label for="username" class="text-light">Tên đăng nhập:</label><br>
-                                <input type="text" name="username" id="username" class="form-control">
+                                <input type="text" name="username" id="username" value="test" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="password" class="text-light">Mật khẩu:</label><br>
-                                <input type="password" name="password" id="password" class="form-control">
+                                <input type="password" name="password" id="password" value="test123" class="form-control">
                             </div>
                             <div class="form-group text-light ">
                                 <input type="radio" id = "patient" name="loginType" value="patient" >
