@@ -7,7 +7,8 @@ $controllers = array(
     'doctorList' => ['showList'],
     'getInf'=>['showInf'],
     'advisory'=>['showQuestions','creQuestion','answer'],
-    'booking'=>['book']
+    'booking'=>['book'],
+    'complicant'=>['compli']
 );
 
 if (!array_key_exists($controller, $controllers) || !in_array($action, $controllers[$controller])) {
@@ -20,3 +21,4 @@ include_once(str_replace('*','',$link));
 $class = str_replace('_', '', ucwords($controller, '_')) . 'Controller';
 $controller = new $class;
 $controller->$action();
+?>
