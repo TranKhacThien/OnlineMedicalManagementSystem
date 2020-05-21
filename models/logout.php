@@ -15,4 +15,5 @@ class Logout extends Database {
 
 
 
+}
 ?>

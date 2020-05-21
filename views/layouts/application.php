@@ -14,11 +14,11 @@
     <?php
         if( isset($_SESSION['username'])){
     ?>
-            <body style="background: url('image/background.jpg') no-repeat center center fixed" >
+            <body style="background: url('image/background.jpg')  center fixed ;background-size: cover" >
     <?php
         }else{
     ?>
-            <body style="background: url('image/background3.jpg') no-repeat center center fixed" >
+            <body style="background: url('image/background3.jpg')  center fixed ;background-size: cover" >
     <?php        
         }
     ?>
@@ -26,28 +26,31 @@
     <body style="background: url('image/background3.jpg') no-repeat center center fixed" >
         <div class="d-flex" id="wrapper">
         <?php
-            
             if( isset($_SESSION['username'])){
-                echo "<div class='bg-light border-right' id='sidebar-wrapper'>
-                    <div class='sidebar-heading'> <a href='' class='text-dark page-item'><img src='image/home.png' title='home' width='200' height='100'></a>  </div>
-                    <div class='list-group list-group-flush'>";
-
-                if( $_SESSION['type'] == 'patient') {
+        ?>
+                <div class='bg-light border-right' id='sidebar-wrapper'>
+                <div class='sidebar-heading'> <a href='?' class='text-dark page-item'><img src='image/home.png' title='home' width='200' height='100'></a>  </div>
+                <div class='list-group list-group-flush'>
+        <?php
+            if( $_SESSION['type'] == 'patient'){
                     $advisory = 'creQuestion';
-                    echo "<a href='views/pages/contact.php' class='list-group-item list-group-item-action bg-light'>Giới thiệu</a>
-                        <a href='#' class='list-group-item list-group-item-action bg-light'>Tin tức</a>
-                        <a href='index.php?controller=doctorList&action=showList' class='list-group-item list-group-item-action bg-light'>Đội ngũ y tế</a>";
-                }
-                else{
-                    $advisory = 'showQuestions';
-                }
-                echo   "<a href='index.php?controller=booking&action=book' class='list-group-item list-group-item-action bg-light'>Đặt lịch</a>
-                        <a href='index.php?controller=advisory&action=".$advisory."' class='list-group-item list-group-item-action bg-light'>Hỏi đáp</a>
-                        <a href='#' class='list-group-item list-group-item-action bg-light'>Báo cáo</a>
-                        <a href='index.php?controller=complicant&action=compli' class='list-group-item list-group-item-action bg-light'>Phản hồi</a>
-                    </div>
+        ?>
+                <a href='#' class='list-group-item list-group-item-action bg-light'>Tin tức</a>
+                <a href='?controller=doctorList&action=showList' class='list-group-item list-group-item-action bg-light'>Đội ngũ y tế</a>
+                <a href='?controller=booking&action=book' class='list-group-item list-group-item-action bg-light'>Đặt lịch</a>
+
+        <?php
+            }
+            else{
+                $advisory = 'showQuestions';
+            }
+        ?>
+                <a href='?controller=advisory&action=<?php echo $advisory?>' class='list-group-item list-group-item-action bg-light'>Hỏi đáp</a>
+                <a href='#' class='list-group-item list-group-item-action bg-light'>Báo cáo</a>
+                </div>
     
-                </div>";
+        </div>
+        <?php
             }
         ?>
             <div id="page-content-wrapper">
@@ -79,15 +82,17 @@
                                 </li>
                                 <li class="nav-item dropdown">
                                     <?php
-                                    if( isset($_SESSION['username'])){
-                                        echo   "<a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
-                                                    ".$_SESSION['username']."
-                                                </a>
-                                                <div class='dropdown-menu dropdown-menu-right' aria-labelledby='navbarDropdown'>
-                                                   <a class='dropdown-item' href='index.php?controller=getInf&action=showInf'>Thông tin tài khoản</a>            
-                                                    <a class='dropdown-item' href='index.php?controller=login&action=logout'>Đăng xuất</a>
-                                                </div>";
-                                    }
+                                        if( isset($_SESSION['username'])){
+                                    ?>
+                                        <a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                                            <?php echo $_SESSION['username'] ?>
+                                        </a>
+                                        <div class='dropdown-menu dropdown-menu-right' aria-labelledby='navbarDropdown'>
+                                            <a class='dropdown-item' href='index.php?controller=getInf&action=showInf'>Thông tin tài khoản</a>            
+                                            <a class='dropdown-item' href='index.php?controller=login&action=logout'>Đăng xuất</a>
+                                        </div>
+                                    <?php
+                                        }
                                     ?>
 
                                 </li>
@@ -102,12 +107,15 @@
             </div>
         </div>
         <?php
-            if( isset($_SESSION['username'])) 
-                echo"<footer style='position: static;margin-top: 10px; bottom:0; width: 100%' class='py-3 bg-dark'>
-                        <div class='container'>
-                            <p class=' text-center text-white'>Copyright &copy; Your Website 2020</p>
-                        </div>
-                    </footer>";
+            if( isset($_SESSION['username'])){
+        ?>
+                <footer style='position: static;margin-top: 10px; bottom:0; width: 100%' class='py-3 bg-dark'>
+                    <div class='container'>
+                        <p class=' text-center text-white'>Copyright &copy; Your Website 2020</p>
+                    </div>
+                </footer>
+        <?php
+            }
         ?>
         <!-- Bootstrap core JavaScript -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

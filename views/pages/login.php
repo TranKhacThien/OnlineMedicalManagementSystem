@@ -11,11 +11,11 @@
                             ?>
                             <div class="form-group">
                                 <label for="username" class="text-light">Tên đăng nhập:</label><br>
-                                <input type="text" name="username" id="username" class="form-control">
+                                <input type="text" name="username" id="username" value="test" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="password" class="text-light">Mật khẩu:</label><br>
-                                <input type="password" name="password" id="password" class="form-control">
+                                <input type="password" name="password" id="password" value="test123" class="form-control">
                             </div>
                             <div class="form-group text-light ">
                                 <input type="radio" id = "patient" name="loginType" value="patient" >
@@ -27,7 +27,7 @@
                                <input class="btn btn-info btn-md" type='submit' name="login" id="login" value='Đăng nhập' >
                             </div>
                             <div id="register-link" class="text-right">
-                                <a href="index.php?controller=registration&action=registration" class="text-light">Đăng ký</a>
+                                <a href="index.php?controller=registration&action=registration" class="text-dark">Đăng ký</a>
                             </div>
                         </form>
                     </div>
