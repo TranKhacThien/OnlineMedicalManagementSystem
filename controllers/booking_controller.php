@@ -12,11 +12,11 @@
     	
     	function isNull(){
     		$this->input=array(
-    			'doctor' => $_REQUEST['doctor'],
+    			'doctorID' => $_REQUEST['doctorID'],
     			'date'=> $_REQUEST['date'],
     			'time'=> $_REQUEST['time']   			
     		);
-    		if($this->input['doctor']=='' || $this->input['date']=='' || $this->input['time']=='' ) 
+    		if($this->input['doctorID']=='' || $this->input['date']=='' || $this->input['time']=='' )
     		{
     			return true;
     		}
@@ -41,7 +41,7 @@
                 }
            
             }
-            if(isset($_GET['doctor'])) $data['schedule'] = booking::schedule('doctor',$_GET['doctor']);
+            if(isset($_GET['doctorID'])) $data['schedule'] = booking::schedule('doctor',$_GET['doctorID']);
             $data['result'] = $this->result;
             if(isset($_SESSION['username'])){
                 $this->render('booking',$data);

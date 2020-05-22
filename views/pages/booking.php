@@ -12,16 +12,16 @@
 							<input class="form-control" type="time" name="time" placeholder="Giờ khám bệnh HH-MM-SS" style="width: 400px" min="07:00" max="17:00">
 						</div>
 					<?php 
-						if( !isset($_GET['doctor']) ){
+						if( !isset($_GET['doctorID']) ){
 					?>
 						<div class="booking">
 							<label for="doctor">Bác sĩ khám bệnh *</label><br>
-							<select class="form-control" name="doctor" style="width: 400px">
+							<select class="form-control" name="doctorID" style="width: 400px">
 							<?php
 								$doctors = $data['doctors'];
 								foreach( $doctors as $doctor){
 							?>
-								<option value="<?php echo $doctor['doctorLoginName']?>"><?php echo $doctor['qualification'].". ".$doctor['doctorName']. " : ". $doctor['specialization']?></option>
+								<option value="<?php echo $doctor['doctorID']?>"><?php echo $doctor['qualification'].". ".$doctor['doctorName']. " : ". $doctor['specialization']?></option>
 							<?php
 								}
 							?>
