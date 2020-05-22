@@ -17,17 +17,13 @@
                           <p class="text-truncate" row='2'>Nội dung : 
                             <?php  
                                 echo $data[$i]['questionDetail']
-                                // echo substr( $data[$i]['questionDetail'],  0, 201);
-                                // if( strlen($data[$i]['questionDetail'])>200){
-                                //       echo " . . . ";
-                                // }
                             ?>
                                       
                           </p>
                           <a href='?controller=advisory&action=answer&id=<?php echo $data[$i]['questionID'] ?>'class='btn btn-primary'>Trả lời</a>
                         </div>
                         <div class='card-footer text-muted'>
-                            <?php echo $data[$i]['patientLoginName'];  ?>
+                            <?php echo $data[$i]['patientID'];  ?>
                         </div>
                     </div>
                 <?php
