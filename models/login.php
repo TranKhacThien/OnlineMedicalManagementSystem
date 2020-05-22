@@ -18,13 +18,13 @@ class Login{
     static public function verify($username, $password, $loginType){
         /*
         * login username and password saved in $username , $password
-        * if user is loggedin return user info in assosiative array
-        * else reutrn false
+        * if user is logged in return user info in associative array
+        * else return false
         */
         $username = $_REQUEST['username'];
         $password = $_REQUEST['password'];
         $db = DB::getInstance();
-        $req = $db->prepare("SELECT * FROM " . $loginType ." WHERE " . $loginType ."LoginName ="." '". $username."' AND password = '".$password."'");
+        $req = $db->prepare("SELECT ".$loginType."ID FROM " . $loginType ." WHERE " . $loginType ."LoginName ="." '". $username."' AND password = '".$password."'");
         $req->setFetchMode(PDO::FETCH_ASSOC);
         $req->execute();
         $info  = $req->fetchAll();
@@ -32,6 +32,7 @@ class Login{
             return false;
         }
         else{
+            $_SESSION['userID'] = $info[0][$loginType.'ID'];
             return true;
         }
     }
