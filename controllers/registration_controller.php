@@ -1,6 +1,7 @@
 <?php
     require_once 'controllers/base_controller.php';
     require_once 'models/registration.php';
+    require_once 'models/login.php';
     class RegistrationController extends BaseController {
         private $result;
         private $input;
@@ -16,6 +17,8 @@
                     
                     $this->result = 'Đăng ký thành công';
                     session_start();
+                    Login::verify($this->input['userName'],$this->input['password'],'patient');
+
                     $_SESSION['username'] = $this->input['userName'];
                     $_SESSION['type'] = 'patient';
                     header('Location: index.php?controller=pages&action=home');

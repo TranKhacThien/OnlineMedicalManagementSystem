@@ -21,8 +21,6 @@ class Login{
         * if user is logged in return user info in associative array
         * else return false
         */
-        $username = $_REQUEST['username'];
-        $password = $_REQUEST['password'];
         $db = DB::getInstance();
         $req = $db->prepare("SELECT ".$loginType."ID FROM " . $loginType ." WHERE " . $loginType ."LoginName ="." '". $username."' AND password = '".$password."'");
         $req->setFetchMode(PDO::FETCH_ASSOC);

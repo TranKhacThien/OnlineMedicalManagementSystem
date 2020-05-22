@@ -3,6 +3,7 @@
     require_once 'models/getInf_models.php';
     require_once 'models/advisory.php';
     require_once 'models/booking.php';
+    require_once 'models/registration.php';
     class GetInfController extends BaseController
     {
             private $notification;
@@ -43,6 +44,8 @@
                 if(isset($_REQUEST['changeInf'])){
                     if($this->isNull()){
                         $this->notification = 'Bạn chưa nhập đủ thông tin';
+                    }elseif (!registration::isNotExist($this->input['loginName'])){
+                        $this->notification = 'Tên đăng nhập đã tồn tại';
                     }elseif($this->input['currentPassword'] == $this->information[0]['password']){
                         getInformation::ChangeInf($this->input);
                         $this->notification = 'Thay đổi thông tin thành công';
@@ -60,6 +63,7 @@
             }
             function isNull(){
                 $this->input = array(
+                    'loginName' => $_REQUEST['loginName'],
                     'currentPassword'=> $_REQUEST ['currentPassword'],
                     'newPassword'=> $_REQUEST ['newPassword'],
                     'firstName'=> $_REQUEST['firstName'],
