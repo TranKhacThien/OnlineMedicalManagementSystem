@@ -34,6 +34,7 @@
         <?php
             if( $_SESSION['type'] == 'patient'){
                     $advisory = 'creQuestion';
+                    
         ?>
                 <a href='#' class='list-group-item list-group-item-action bg-light'>Tin tức</a>
                 <a href='?controller=doctorList&action=showList' class='list-group-item list-group-item-action bg-light'>Đội ngũ y tế</a>
