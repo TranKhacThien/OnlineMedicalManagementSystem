@@ -42,7 +42,7 @@
         static function schedule($type, $userID){
             $db = DB::getInstance();
             $req = $db->prepare("SELECT * FROM `booking` WHERE ".$type."ID = '".$userID."'");
-            print_r("SELECT * FROM booking WHERE ".$type."ID = '".$userID."'");
+//             print_r("SELECT * FROM booking WHERE ".$type."ID = '".$userID."'");
             $req->setFetchMode(PDO::FETCH_ASSOC);
             $req->execute();
             $list = $req->fetchAll();
