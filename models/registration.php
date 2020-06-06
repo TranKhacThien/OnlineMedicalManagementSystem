@@ -14,13 +14,6 @@
                 $sql = "INSERT INTO patient VALUES ( '" . $input['userName'] ."' , '" . $input['password'] ."' , '". $input['firstName']. "' , '".$input['lastName'] ."' , '". $input['contactNo']."' , '". $input['address'] ."' , '".$input['age']."' , '" . $input['height'] ."' , '". $input['weight']  ."' , '" . $input['sex']."' , '". $input['bloodGroup']."' )";
                 $db->exec($sql);
                 return true;
-                // if ($db->query($sql) === TRUE) {
-                //     // echo "New patient created successfully";
-                //     return true;
-                // } else {
-                //     // echo "Error: " . $sql . "<br>" . "xxxxxxxxx" . self::isNotExist($input['userName']);
-                //     return false;
-                // }
             }else{
                 return false;
             }
