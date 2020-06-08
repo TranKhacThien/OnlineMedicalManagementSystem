@@ -4,39 +4,39 @@
 
     <div class="col-md-8">
             <ul class="list-group">
-                <li class="list-group-item">
+            <li class="list-group-item">
 
-                    <img src="image/vinmec1.jpg" alt="">
-                            <a href="",class="ten-bv"><h3>Bệnh viện Đa khoa Quốc tế Vinmec Central Park</h3></a>
-                            <p><i class="fa fa-map-marker" aria-hidden="true"></i>208 Nguyễn Hữu Cảnh, Phường 22, Q.Bình Thạnh, Hồ Chí Minh (cách km)</p>
-                            <p><i class="fa fa-stethoscope" aria-hidden="true"></i>
-    Hồi sức - Cấp cứu, Gây mê - điều trị đau, Khám sức khỏe tổng quát, Tim mạch, và 4 chuyên khoa khác</p>
-                            <p><i class="fa fa-user-md" aria-hidden="true"></i>80 bác sĩ</p>
+            	<img src="image/vinmec1.jpg" alt="">
+            			<a href="",class="ten-bv"><h3>Cơ sở khám bệnh số 1</h3></a>
+            			<p><i class="fa fa-map-marker" aria-hidden="true"></i>208 Nguyễn Hữu Cảnh, Phường 22, Q.Bình Thạnh, Hồ Chí Minh (cách km)</p>
+            			<p><i class="fa fa-stethoscope" aria-hidden="true"></i>
+						<p>Hồi sức - Cấp cứu, Gây mê - điều trị đau, Khám sức khỏe tổng quát, Tim mạch, và 4 chuyên khoa khác</p>
+						<p><i class="fa fa-user-md" aria-hidden="true"></i>80 bác sĩ</p>
 
-                            
-                            <button class ="book"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>Đăng kí khám</button>
-                            <button class ="contact"  onclick="myFunction()"> <i class="fa fa-phone" aria-hidden="true"></i>Liên hệ ngay</button><br>
-                            <div class="action-showing" id="show01" >
-                                <i class="fa fa-phone-square" aria-hidden="true"></i>
-                                    Bạn có thể liên hệ với Bệnh viện Đa khoa Quốc tế Vinmec Central Park theo số điện thoại: <u> 0283 6221 166 22 </u>
-                                
-                            </div>
-                </li>
-                <li class="list-group-item">
-                    <img src="image/vinmec2.jpg" alt="">
-                            <a href="",class="ten-bv"><h3>Bệnh viện Đa khoa Quốc tế Vinmec Times City</h3></a>
-                            <p><i class="fa fa-map-marker" aria-hidden="true"></i>458 Minh Khai, Q. Hai Bà Trưng. Hà Nội (cách km)</p>
-                            <p><i class="fa fa-stethoscope" aria-hidden="true"></i>Đa khoa</p>
-                            <p><i class="fa fa-user-md" aria-hidden="true"></i>80 bác sĩ</p>
-                            <button class ="book"><i class="fa fa-calendar-check-o" aria-hidden="true"></i></i>Đăng kí khám</button>
-                            <button class ="contact" onclick="myFunction()"><i class="fa fa-phone" aria-hidden="true"></i>Liên hệ ngay</button><br>
-                            <div class="action-showing" id="show02" >
-                                <i class="fa fa-phone-square" aria-hidden="true"></i>
-                                    Bạn có thể liên hệ với Bệnh viện Đa khoa Quốc tế Vinmec Central Park theo số điện thoại: <u> 0283 6221 166 22 </u>
-                                
-                            </div>
-                </li>
-            </ul>
+						
+						<button class ="book"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>Đăng kí khám</button>
+						<button class ="contact"  onclick="myFunction()"> <i class="fa fa-phone" aria-hidden="true"></i>Liên hệ ngay</button><br>
+						<div class="action-showing" id="show01" >
+							<i class="fa fa-phone-square" aria-hidden="true"></i>
+								Bạn có thể liên hệ với bệnh viện theo số điện thoại: <u> 3333 3333 222 22 </u>
+							
+						</div>
+			</li>
+            <li class="list-group-item">
+            	<img src="image/vinmec2.jpg" alt="">
+            			<a href="",class="ten-bv"><h3>Cơ sở khám bệnh số 2</h3></a>
+            			<p><i class="fa fa-map-marker" aria-hidden="true"></i>458 Minh Khai, Q. Hai Bà Trưng. Hà Nội (cách km)</p>
+            			<p><i class="fa fa-stethoscope" aria-hidden="true"></i>Đa khoa</p>
+						<p><i class="fa fa-user-md" aria-hidden="true"></i>80 bác sĩ</p>
+						<button class ="book"><i class="fa fa-calendar-check-o" aria-hidden="true"></i></i>Đăng kí khám</button>
+						<button class ="contact" onclick="myFunction()"><i class="fa fa-phone" aria-hidden="true"></i>Liên hệ ngay</button><br>
+						<div class="action-showing" id="show02" >
+							<i class="fa fa-phone-square" aria-hidden="true"></i>
+								Bạn có thể liên hệ với bệnh viện theo số điện thoại: <u> 4444 4444 333 22 </u>
+							
+						</div>
+            </li>
+         </ul>
         </div>
         
         <div class="col-md-4">

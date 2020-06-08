@@ -11,8 +11,8 @@
             if(self::isNotExist($input['userName']))
             {
                 $db = DB::getInstance();
-                $sql = "INSERT INTO `patient` (`patientLoginName`, `password`, `firstName`, `lastName`, `contact-no`, `address`, `age`, `height`, `weight`, `sex`, `bloodGroup`) "
-                        ."VALUES ( '" . $input['userName'] ."' , '" . $input['password'] ."' , '". $input['firstName']. "' , '".$input['lastName'] ."' , '". $input['contactNo']."' , '". $input['address'] ."' , '".$input['age']."' , '" . $input['height'] ."' , '". $input['weight']  ."' , '" . $input['sex']."' , '". $input['bloodGroup']."' )";
+                $sql = "INSERT INTO `patient` (`patientID`, `patientLoginName`, `password`, `firstName`, `lastName`, `contact-no`, `address`, `age`, `height`, `weight`, `sex`, `bloodGroup`) "
+                        ."VALUES ( '". $input['userID'] ."', '" . $input['userName'] ."' , '" . $input['password'] ."' , '". $input['firstName']. "' , '".$input['lastName'] ."' , '". $input['contactNo']."' , '". $input['address'] ."' , '".$input['age']."' , '" . $input['height'] ."' , '". $input['weight']  ."' , '" . $input['sex']."' , '". $input['bloodGroup']."' )";
                 $db->exec($sql);
                 return true;
 
