@@ -39,9 +39,12 @@
                 return false;
         }
 
-        static function schedule($type, $userID){
+        static function schedule($type, $userID, $condition = 'filter'){
             $db = DB::getInstance();
-            $req = $db->prepare("SELECT * FROM `booking` WHERE ".$type."ID = '".$userID."'");
+            if($condition != '')
+                $req = $db->prepare("SELECT * FROM `booking` WHERE ".$type."ID = '".$userID."' AND dateBooking > CURRENT_DATE");
+            else
+                $req = $db->prepare("SELECT * FROM `booking` WHERE ".$type."ID = '".$userID."'");
 //             print_r("SELECT * FROM booking WHERE ".$type."ID = '".$userID."'");
             $req->setFetchMode(PDO::FETCH_ASSOC);
             $req->execute();

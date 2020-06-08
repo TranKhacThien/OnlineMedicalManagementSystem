@@ -28,7 +28,7 @@
 //                print_r($this->information);
                 $info=$this->information[0];
                 $questions=Advisory::getQuestions('myQuestion',0);
-                $schedule =booking::schedule($_SESSION['type'],$_SESSION['userID']);
+                $schedule =booking::schedule($_SESSION['type'],$_SESSION['userID'],'');
                 $this->data['info']=$info;
                 $this->data['question']=$questions;
                 $this->data['schedule']=$schedule;
