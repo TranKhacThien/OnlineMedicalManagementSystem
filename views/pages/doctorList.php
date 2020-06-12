@@ -7,13 +7,13 @@
                         if( isset($data[$i])){
                 ?>        
                         <div style='border-radius: 0.5rem' class='container bg-light'>                    
-                            <div class='row'>
+                            <div  class='row'>
                                 <div class='col-md-4'>
                                     <a href='#'>
-                                        <img width='150px' height='200px' class='img-fluid rounded mb-3 mb-md-0' src=<?php echo $data[$i]['avatar'];?> alt=''>
+                                        <img style='margin-top: 20px' width='150px' height='200px' class='img-fluid rounded mb-3 mb-md-0' src=<?php echo $data[$i]['avatar'];?> alt=''>
                                     </a>
                                 </div>
-                                <div class='col-md-8'>
+                                <div style='margin-top: 20px' class='col-md-8'>
                                     <h3>Bác sĩ:     
                                         <?php 
                                             echo $data[$i]['doctorName'];

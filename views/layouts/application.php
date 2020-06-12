@@ -46,7 +46,7 @@
             }
         ?>
                 <a href='?controller=advisory&action=<?php echo $advisory?>' class='list-group-item list-group-item-action bg-light'>Hỏi đáp</a>
-                <a href='#' class='list-group-item list-group-item-action bg-light'>Báo cáo</a>
+                <a href='?controller=complicant&action=compli' class='list-group-item list-group-item-action bg-light'>Báo cáo</a>
                 </div>
     
         </div>

@@ -41,17 +41,10 @@
         
         <div class="col-md-4">
             <div class="card my-4">
-                <h5 class="card-header">Tin tức</h5>
-                <div class="card-body">
-                    <?php
-                        // $url='http://www.hspi.org.vn/vcl/d67';
-                        // $lines_array=file($url); 
-                        // for( $i=450; $i<700; $i++){
-                        //         if( strpos($lines_array[$i],"HREF") == false and strpos($lines_array[$i],"SRC") == false )
-                        //         echo $lines_array[$i];
-                        // }         
-                    ?>
-                </div>
+                <h5 class="card-header">Thời gian</h5>
+                <d class="card-body">
+                    <iframe src="http://free.timeanddate.com/clock/i7bmndyc/n95/szw210/szh210/hocfff/hbw0/cf100/hgr0/fas20/facfff/fdi86/mqc000/mqs2/mql3/mqw4/mqd70/mhc000/mhs2/mhl3/mhw4/mhd70/mmv0/hhs3/hms3/hsc00f" frameborder="0" width="210" height="210"></iframe>
+                </d>
             </div>
 
             <div class="card my-4">

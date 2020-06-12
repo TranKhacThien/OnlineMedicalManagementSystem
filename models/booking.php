@@ -41,11 +41,14 @@
 
         static function schedule($type, $userID, $condition = 'filter'){
             $db = DB::getInstance();
-            if($condition != '')
-                $req = $db->prepare("SELECT * FROM `booking` WHERE ".$type."ID = '".$userID."' AND dateBooking > CURRENT_DATE");
+            if($condition == 'latest')
+                $sql = "SELECT * FROM `booking` WHERE ".$type."ID = '".$userID."' AND dateBooking < CURRENT_DATE ORDER BY dateBooking DESC LIMIT 1";    
+            else if($condition != '')
+                $sql = "SELECT * FROM `booking` WHERE ".$type."ID = '".$userID."' AND dateBooking > CURRENT_DATE";    
             else
-                $req = $db->prepare("SELECT * FROM `booking` WHERE ".$type."ID = '".$userID."'");
-//             print_r("SELECT * FROM booking WHERE ".$type."ID = '".$userID."'");
+                $sql = "SELECT * FROM `booking` WHERE ".$type."ID = '".$userID."'";
+            // print_r($sql);
+            $req = $db->prepare($sql);
             $req->setFetchMode(PDO::FETCH_ASSOC);
             $req->execute();
             $list = $req->fetchAll();

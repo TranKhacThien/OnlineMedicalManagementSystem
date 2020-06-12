@@ -13,11 +13,14 @@
             $loginType = $_SESSION['type'];
         	$db = DB::getInstance();
 
-        	if($loginType== "patient") {
-        		
-                $sql = "INSERT INTO complicant (patientLoginName,complication,regDate)
-                VALUES ('".$loginName."','".$input['complication']."','".$input['date']."')";
-        	}
+        	// if($loginType== "patient") {
+            //     $sql = "INSERT INTO report (bookingID,complication)
+            //     VALUES ('".$input['bookingID']."','".$input['complication']."')";
+            //     // $db->exec($sql);
+        	// }else{
+            //     // $sql = "INSERT INTO report( bookingID, reportDetail)
+            //     // VALUES ('"."
+            // }
             
         }
  	}
