@@ -76,7 +76,10 @@
                                         <label for="address">Địa chỉ *</label>
                                         <input type="text" class="form-control "name='address' value="<?php echo $data['info']['address'] ?>">
                                     </div>
-                                    
+                                    <div class='form-group'>
+                                        <label for="loginName">Tên đăng nhập *</label>
+                                        <input type="text" class="form-control "name='loginName' value="<?php echo $data['info'][$_SESSION['type'].'LoginName'] ?>">
+                                    </div>
                                     <div style="margin-bottom: 40px" class='form-group'>
                                         <label for="currentPassword">Mật khẩu hiện tại *</label>
                                         <input type='password' class="form-control " name='currentPassword' placeholder='Mật khẩu hiện tại'>

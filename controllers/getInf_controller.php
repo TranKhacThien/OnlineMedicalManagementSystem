@@ -3,6 +3,7 @@
     require_once 'models/getInf_models.php';
     require_once 'models/advisory.php';
     require_once 'models/booking.php';
+    require_once 'models/registration.php';
     class GetInfController extends BaseController
     {
             private $notification;
@@ -14,7 +15,8 @@
                 session_start();
                 $loginName = $_SESSION['username'] ;
                 $loginType = $_SESSION['type'];
-                $this->information=getInformation::GetInf($loginName,$loginType);
+                $loginID = $_SESSION['userID'];
+                $this->information=getInformation::GetInf($loginID,$loginType);
             }
             public function __destruct(){
 
@@ -23,9 +25,10 @@
                 if(isset($_POST['delete'])){
                     booking::delete($_POST['id']);
                 }
+//                print_r($this->information);
                 $info=$this->information[0];
                 $questions=Advisory::getQuestions('myQuestion',0);
-                $schedule =booking::schedule($_SESSION['type'],$_SESSION['username']);
+                $schedule =booking::schedule($_SESSION['type'],$_SESSION['userID'],$_SESSION['type']);
                 $this->data['info']=$info;
                 $this->data['question']=$questions;
                 $this->data['schedule']=$schedule;
@@ -41,6 +44,8 @@
                 if(isset($_REQUEST['changeInf'])){
                     if($this->isNull()){
                         $this->notification = 'Bạn chưa nhập đủ thông tin';
+                    }elseif (!registration::isNotExist($this->input['loginName'])){
+                        $this->notification = 'Tên đăng nhập đã tồn tại';
                     }elseif($this->input['currentPassword'] == $this->information[0]['password']){
                         getInformation::ChangeInf($this->input);
                         $this->notification = 'Thay đổi thông tin thành công';
@@ -58,6 +63,7 @@
             }
             function isNull(){
                 $this->input = array(
+                    'loginName' => $_REQUEST['loginName'],
                     'currentPassword'=> $_REQUEST ['currentPassword'],
                     'newPassword'=> $_REQUEST ['newPassword'],
                     'firstName'=> $_REQUEST['firstName'],

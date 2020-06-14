@@ -11,13 +11,14 @@
         	
         	$loginName = $_SESSION['username'] ;
             $loginType = $_SESSION['type'];
+            $userID = $_SESSION['userID'];
         	$db = DB::getInstance();
 
         	if($loginType== "patient") {
         		/*$sql = "INSERT INTO booking VALUES ( '".$_SESSION['username']."','".$input['doctor']."','".$input['date']."','".$input['time']."') ";
                 */
-                $sql = "INSERT INTO booking (patientLoginName,doctorLoginName,dateBooking,timeBooking)
-                VALUES ('".$loginName."','".$input['doctor']."','".$input['date']."',
+                $sql = "INSERT INTO booking (patientID,doctorID,dateBooking,timeBooking)
+                VALUES ('".$userID."','".$input['doctorID']."','".$input['date']."',
                 '".$input['time']."')";
 
         		$db->exec($sql);
@@ -27,7 +28,8 @@
         }
         static function exist($input){
             $db = DB::getInstance();
-            $req =$db->prepare("SELECT bookingID FROM booking WHERE dateBooking = '".$input['date']."' AND timeBooking BETWEEN SUBTIME('".$input['time']."','02-00') AND ADDTIME('".$input['time']."','02-00')") ;
+            $sql = "SELECT bookingID FROM booking WHERE dateBooking = '".$input['date']."' AND timeBooking BETWEEN SUBTIME('".$input['time']."','02:00') AND ADDTIME('".$input['time']."','02:00')";
+            $req = $db->prepare($sql);
             $req->setFetchMode(PDO::FETCH_ASSOC);
             $req->execute();
             $list = $req->fetchAll();
@@ -37,9 +39,18 @@
                 return false;
         }
 
-        static function schedule($type, $loginName){
+        static function schedule($type, $userID, $condition = 'filter'){
             $db = DB::getInstance();
-            $req = $db->prepare("SELECT * FROM booking WHERE ".$type."LoginName = '".$loginName."'");
+            if($condition == 'latest')
+                $sql = "SELECT * FROM `booking` WHERE ".$type."ID = '".$userID."' AND dateBooking < CURRENT_DATE ORDER BY dateBooking DESC LIMIT 1";    
+            else if($condition == 'met')
+                $sql = "SELECT * FROM `booking` WHERE ".$type."ID = '".$userID."' AND dateBooking < CURRENT_DATE ORDER BY dateBooking DESC";    
+            else if($condition == 'patient')
+                $sql = "SELECT * FROM `booking` WHERE ".$type."ID = '".$userID."' AND dateBooking > CURRENT_DATE";    
+            else
+                $sql = "SELECT * FROM `booking` WHERE ".$type."ID = '".$userID."' ORDER BY dateBooking DESC";
+            // print_r($sql);
+            $req = $db->prepare($sql);
             $req->setFetchMode(PDO::FETCH_ASSOC);
             $req->execute();
             $list = $req->fetchAll();

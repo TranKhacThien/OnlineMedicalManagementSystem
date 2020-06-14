@@ -16,11 +16,13 @@ class Login{
     * returns user info in an array OR false
     */
     static public function verify($username, $password, $loginType){
-        // Tạo kết nối đến CSDL
+        /*
+        * login username and password saved in $username , $password
+        * if user is logged in return user info in associative array
+        * else return false
+        */
         $db = DB::getInstance();
-        // Tạo prepared statement
-        $req = $db->prepare("SELECT * FROM " . $loginType ." WHERE " . $loginType ."LoginName ="." '". $username."' AND password = '".$password."'");
-        // Thiết lập kiểu dữ liệu trả về dạng mảng
+        $req = $db->prepare("SELECT ".$loginType."ID FROM " . $loginType ." WHERE " . $loginType ."LoginName ="." '". $username."' AND password = '".$password."'");
         $req->setFetchMode(PDO::FETCH_ASSOC);
         // Thực thi prepared statement
         $req->execute();
@@ -32,7 +34,7 @@ class Login{
             return false;
         }
         else{
-            // Nếu có -> Đăng nhập thành công  
+            $_SESSION['userID'] = $info[0][$loginType.'ID'];
             return true;
         }
     }

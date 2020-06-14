@@ -2,10 +2,10 @@
 -- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Apr 22, 2020 at 04:54 PM
+-- Host: 127.0.0.1:3307
+-- Generation Time: May 21, 2020 at 05:56 PM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.3
+-- PHP Version: 7.2.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,20 +19,21 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- 
+-- Database: `csdlbtl`
 --
+
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `booking`
 --
-
+USE btlcsdl;
 CREATE TABLE `booking` (
-  `bookingID` int(20) NOT NULL,
-  `patientLoginName` varchar(20) NOT NULL,
-  `doctorLoginName` varchar(50) NOT NULL,
-  `Date` date NOT NULL,
-  `TimeBooking` time NOT NULL
+  `bookingID` int(200) NOT NULL,
+  `patientID` int(200) NOT NULL,
+  `doctorID` int(200) NOT NULL,
+  `dateBooking` date NOT NULL,
+  `timeBooking` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -42,11 +43,10 @@ CREATE TABLE `booking` (
 --
 
 CREATE TABLE `complicant` (
-  `complicantID` int(11) NOT NULL,
-  `patientLoginName` varchar(20) NOT NULL,
-  `complication` varchar(2000) NOT NULL,
-  `regDate` date NOT NULL,
-  `Time` time NOT NULL
+  `complicantID` int(200) NOT NULL,
+  `patientID` int(200) NOT NULL,
+  `complication` text NOT NULL,
+  `regDate` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -56,23 +56,15 @@ CREATE TABLE `complicant` (
 --
 
 CREATE TABLE `doctor` (
+  `doctorID` int(200) NOT NULL,
   `doctorLoginName` varchar(20) NOT NULL,
   `password` varchar(20) NOT NULL,
   `doctorName` varchar(50) NOT NULL,
-  `specialization` varchar(50) DEFAULT NULL,
-  `qualification` varchar(50) DEFAULT NULL,
-  `hospital` varchar(50) DEFAULT NULL,
-  `avatar` varchar(100) DEFAULT NULL
+  `specialization` varchar(50) NOT NULL,
+  `qualification` varchar(50) NOT NULL,
+  `hospital` varchar(50) NOT NULL,
+  `avatar` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `doctor`
---
-
-INSERT INTO `doctor` (`doctorLoginName`, `password`, `doctorName`, `specialization`, `qualification`, `hospital`, `avatar`) VALUES
-('admin', '123456', 'Hoàng Văn Hùng', '', '', '', 'image/006.jpeg'),
-('Phuc1979', '01021979', 'Hoàng Văn Phúc', 'Nhãn khoa', 'TS', 'OMMS', 'image/007.jpeg'),
-('Thanh12', '08121986', 'Trần Thị Thanh', 'Nhãn khoa', 'TS', 'OMMS', 'image/002.jpeg');
 
 -- --------------------------------------------------------
 
@@ -81,6 +73,7 @@ INSERT INTO `doctor` (`doctorLoginName`, `password`, `doctorName`, `specializati
 --
 
 CREATE TABLE `patient` (
+  `patientID` int(200) NOT NULL,
   `patientLoginName` varchar(20) NOT NULL,
   `password` varchar(20) NOT NULL,
   `firstName` varchar(20) NOT NULL,
@@ -88,23 +81,11 @@ CREATE TABLE `patient` (
   `contact-no` varchar(20) NOT NULL,
   `address` varchar(50) NOT NULL,
   `age` int(11) NOT NULL,
-  `height` double NOT NULL,
-  `weight` double NOT NULL,
+  `height` int(11) NOT NULL,
+  `weight` int(11) NOT NULL,
   `sex` varchar(10) NOT NULL,
-  `bloodGroup` varchar(10) NOT NULL
+  `booldGroup` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `patient`
---
-
-INSERT INTO `patient` (`patientLoginName`, `password`, `firstName`, `lastName`, `contact-no`, `address`, `age`, `height`, `weight`, `sex`, `bloodGroup`) VALUES
-('hongDD', '123456786', 'Nguyễn ', 'Hồng', '023465898', 'BG', 18, 160, 42, 'Nữ', 'A'),
-('ktt123', '123456', 'Tran', 'Thien', '123456', 'NA', 12, 165, 60, 'nam', 'O'),
-('Nghe100175', '123456789', 'Dương Đình', 'Nghệ', '01345645654', 'NA', 100, 175, 70, 'Nam', 'O'),
-('quanhi', '12345677', 'Dương', 'Quá', '058642456', 'TQ', 55, 170, 65, 'Nam', 'AB'),
-('test123', 'test123', 'Trần ', 'Hoàng', '01345645654', 'NA', 12, 135, 40, 'nam', 'O'),
-('van123456', 'asdfghjkl', 'Hoàng', 'Vân', '0123456789', 'NA', 44, 170, 65, 'Nam', 'O');
 
 -- --------------------------------------------------------
 
@@ -113,11 +94,12 @@ INSERT INTO `patient` (`patientLoginName`, `password`, `firstName`, `lastName`, 
 --
 
 CREATE TABLE `question` (
-  `questionID` int(20) NOT NULL,
+  `questionID` int(200) NOT NULL,
   `questionDetails` varchar(2000) NOT NULL,
-  `patientLoginName` varchar(20) NOT NULL,
-  `doctorLoginName` varchar(50) NOT NULL,
-  `answer` varchar(2000) NOT NULL
+  `questionTitle` varchar(200) NOT NULL,
+  `answer` varchar(2000) NOT NULL,
+  `patientID` int(200) NOT NULL,
+  `doctorID` int(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -127,11 +109,12 @@ CREATE TABLE `question` (
 --
 
 CREATE TABLE `report` (
-  `patientLoginName` varchar(20) NOT NULL,
-  `doctorLoginName` varchar(50) NOT NULL,
-  `complication` varchar(2000) NOT NULL,
+  `reportID` int(200) NOT NULL,
+  `patientID` int(200) NOT NULL,
+  `doctorID` int(200) NOT NULL,
+  `complication` text NOT NULL,
   `reportDetails` varchar(50) NOT NULL,
-  `reportID` int(20) NOT NULL
+  `bookingID` int(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -143,43 +126,44 @@ CREATE TABLE `report` (
 --
 ALTER TABLE `booking`
   ADD PRIMARY KEY (`bookingID`),
-  ADD KEY `patientLoginName` (`patientLoginName`),
-  ADD KEY `doctorLoginName` (`doctorLoginName`);
+  ADD KEY `patientID` (`patientID`),
+  ADD KEY `doctorID` (`doctorID`);
 
 --
 -- Indexes for table `complicant`
 --
 ALTER TABLE `complicant`
   ADD PRIMARY KEY (`complicantID`),
-  ADD KEY `patientLoginName` (`patientLoginName`);
+  ADD KEY `patientID` (`patientID`);
 
 --
 -- Indexes for table `doctor`
 --
 ALTER TABLE `doctor`
-  ADD PRIMARY KEY (`doctorLoginName`);
+  ADD PRIMARY KEY (`doctorID`);
 
 --
 -- Indexes for table `patient`
 --
 ALTER TABLE `patient`
-  ADD PRIMARY KEY (`patientLoginName`);
+  ADD PRIMARY KEY (`patientID`);
 
 --
 -- Indexes for table `question`
 --
 ALTER TABLE `question`
   ADD PRIMARY KEY (`questionID`),
-  ADD KEY `patientLoginName` (`patientLoginName`),
-  ADD KEY `doctorLoginName` (`doctorLoginName`);
+  ADD KEY `patientID` (`patientID`),
+  ADD KEY `doctorID` (`doctorID`);
 
 --
 -- Indexes for table `report`
 --
 ALTER TABLE `report`
   ADD PRIMARY KEY (`reportID`),
-  ADD KEY `patientLoginName` (`patientLoginName`),
-  ADD KEY `doctorLoginName` (`doctorLoginName`);
+  ADD KEY `patientID` (`patientID`),
+  ADD KEY `doctorID` (`doctorID`),
+  ADD KEY `bookingID` (`bookingID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -189,19 +173,31 @@ ALTER TABLE `report`
 -- AUTO_INCREMENT for table `complicant`
 --
 ALTER TABLE `complicant`
-  MODIFY `complicantID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `complicantID` int(200) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `doctor`
+--
+ALTER TABLE `doctor`
+  MODIFY `doctorID` int(200) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `patient`
+--
+ALTER TABLE `patient`
+  MODIFY `patientID` int(200) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `question`
 --
 ALTER TABLE `question`
-  MODIFY `questionID` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `questionID` int(200) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `report`
 --
 ALTER TABLE `report`
-  MODIFY `reportID` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `reportID` int(200) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
@@ -211,28 +207,27 @@ ALTER TABLE `report`
 -- Constraints for table `booking`
 --
 ALTER TABLE `booking`
-  ADD CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`patientLoginName`) REFERENCES `patient` (`patientLoginName`),
-  ADD CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`doctorLoginName`) REFERENCES `doctor` (`doctorLoginName`);
+  ADD CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`patientID`) REFERENCES `patient` (`patientID`),
+  ADD CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`doctorID`) REFERENCES `doctor` (`doctorID`);
 
 --
 -- Constraints for table `complicant`
 --
 ALTER TABLE `complicant`
-  ADD CONSTRAINT `complicant_ibfk_1` FOREIGN KEY (`patientLoginName`) REFERENCES `patient` (`patientLoginName`);
+  ADD CONSTRAINT `complicant_ibfk_1` FOREIGN KEY (`patientID`) REFERENCES `patient` (`patientID`);
 
 --
 -- Constraints for table `question`
 --
 ALTER TABLE `question`
-  ADD CONSTRAINT `question_ibfk_1` FOREIGN KEY (`patientLoginName`) REFERENCES `patient` (`patientLoginName`),
-  ADD CONSTRAINT `question_ibfk_2` FOREIGN KEY (`doctorLoginName`) REFERENCES `doctor` (`doctorLoginName`);
+  ADD CONSTRAINT `question_ibfk_1` FOREIGN KEY (`patientID`) REFERENCES `patient` (`patientID`),
+  ADD CONSTRAINT `question_ibfk_2` FOREIGN KEY (`doctorID`) REFERENCES `doctor` (`doctorID`);
 
 --
 -- Constraints for table `report`
 --
 ALTER TABLE `report`
-  ADD CONSTRAINT `report_ibfk_1` FOREIGN KEY (`patientLoginName`) REFERENCES `patient` (`patientLoginName`),
-  ADD CONSTRAINT `report_ibfk_2` FOREIGN KEY (`doctorLoginName`) REFERENCES `doctor` (`doctorLoginName`);
+  ADD CONSTRAINT `report_ibfk_1` FOREIGN KEY (`bookingID`) REFERENCES `booking` (`bookingID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

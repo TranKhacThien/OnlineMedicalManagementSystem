@@ -14,9 +14,9 @@ class AdvisoryController extends BaseController
   public function creQuestion()
   {
     $notification ="";
-    if( isset($_GET['name'])){
-      $question['doctorLoginName'] = $_GET['name'];
-      $data = getInformation::GetInf($_GET['name'],'doctor');
+    if( isset($_GET['doctorID'])){
+      $question['doctorID'] = $_GET['doctorID'];
+      $data = getInformation::GetInf($_GET['doctorID'],'doctor');
     }
     if( isset($_GET['id'])){
       $data['question'] = Advisory::getQuestions($_GET['id'],0)[0];
@@ -31,7 +31,7 @@ class AdvisoryController extends BaseController
         $question['questionTitle'] = $_REQUEST['questionTitle'];
         $question['questionDetail'] = $_REQUEST['questionDetail'];
         Advisory::createQuestion($question);
-        if( isset($_GET['name'])){ 
+        if( isset($_GET['doctorID'])){ 
           header('Location: index.php?controller=doctorList&action=showList');
         }else{
           header('Location: index.php');
@@ -73,7 +73,7 @@ class AdvisoryController extends BaseController
         if( isset($_POST['submit'])){
           $data['answer'] = $_POST['answer'];
           Advisory::answer($data);
-          header('Location: index.php/controller=advisory&action=showQuestions');
+          header('Location: index.php?controller=advisory&action=showQuestions');
         }
         $id = $data['id'];
         $data['question']=Advisory::getQuestions($id,0);

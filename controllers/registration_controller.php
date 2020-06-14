@@ -1,6 +1,7 @@
 <?php
     require_once 'controllers/base_controller.php';
     require_once 'models/registration.php';
+    require_once 'models/login.php';
     class RegistrationController extends BaseController {
         private $result;
         private $input;
@@ -16,6 +17,8 @@
                     
                     $this->result = 'Đăng ký thành công';
                     session_start();
+                    Login::verify($this->input['userName'],$this->input['password'],'patient');
+                    $_SESSION['userID'] = $this->input['userID'];
                     $_SESSION['username'] = $this->input['userName'];
                     $_SESSION['type'] = 'patient';
                     header('Location: index.php?controller=pages&action=home');
@@ -38,7 +41,8 @@
                     'bloodGroup'=> $_REQUEST['bloodGroup'],
                     'height'=> $_REQUEST['height'],
                     'weight'=> $_REQUEST['weight'],
-                    'address'=> $_REQUEST['address']
+                    'address'=> $_REQUEST['address'],
+                    'userID'=> rand()
                 );
 
                 if( $this->input['userName'] == '' || $this->input['password'] == '' || $this->input['firstName'] == '' || $this->input['lastName'] == '' || $this->input['age'] == '' || $this->input['contactNo'] == '' || $this->input['sex']  == '' || $this->input['height']  == '' || $this->input['weight']  == '' || $this->input['address'] == '' || $this->input['bloodGroup']  == '' ){
