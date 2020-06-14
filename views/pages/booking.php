@@ -5,11 +5,11 @@
 				<fieldset>
 						<div class="booking" >
 							<label for="date">Ngày khám bệnh *</label><br>
-							<input class="form-control" type="date" name="date" placeholder="Ngày khám bệnh YYYY-DD-MM" style="width: 400px">
+							<input class="form-control" type="date" name="date" placeholder="Ngày khám bệnh YYYY-DD-MM" style="width: 400px" min='<?php $curDate = date("Y-m-d"); echo date('Y-m-d', strtotime($curDate. ' + 1 days'))?>'>
 						</div>
 						<div class="booking" >
 							<label for="time">Giờ khám bệnh *</label><br>
-							<input class="form-control" type="time" name="time" placeholder="Giờ khám bệnh HH-MM-SS" style="width: 400px" min="07:00" max="17:00">
+							<input class="form-control" type="time" name="time" placeholder="Giờ khám bệnh HH-MM --" style="width: 400px" min="07:00" max="17:00">
 						</div>
 					<?php 
 						if( !isset($_GET['doctorID']) ){

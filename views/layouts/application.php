@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>HMS</title>
-
+    <title>Hospital management system</title>
+    <link rel = "icon" href = "image/home.png" type = "image/x-icon"> 
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://onlinemedicalmanagementsystem.herokuapp.com/css/simple-sidebar.css" rel="stylesheet">
 </head>
@@ -35,7 +35,6 @@
             if( $_SESSION['type'] == 'patient'){
                     $advisory = 'creQuestion';
         ?>
-                <a href='#' class='list-group-item list-group-item-action bg-light'>Tin tức</a>
                 <a href='?controller=doctorList&action=showList' class='list-group-item list-group-item-action bg-light'>Đội ngũ y tế</a>
                 <a href='?controller=booking&action=book' class='list-group-item list-group-item-action bg-light'>Đặt lịch</a>
 
@@ -46,7 +45,7 @@
             }
         ?>
                 <a href='?controller=advisory&action=<?php echo $advisory?>' class='list-group-item list-group-item-action bg-light'>Hỏi đáp</a>
-                <a href='?controller=complicant&action=compli' class='list-group-item list-group-item-action bg-light'>Báo cáo</a>
+                <a href='?controller=report&action=submit' class='list-group-item list-group-item-action bg-light'>Lịch sử khám bệnh</a>
                 </div>
     
         </div>

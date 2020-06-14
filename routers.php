@@ -8,7 +8,7 @@ $controllers = array(
     'getInf'=>['showInf','changeInf'],
     'advisory'=>['showQuestions','creQuestion','answer'],
     'booking'=>['book'],
-    'complicant'=>['compli']
+    'report'=>['submit']
 );
 
 if (!array_key_exists($controller, $controllers) || !in_array($action, $controllers[$controller])) {

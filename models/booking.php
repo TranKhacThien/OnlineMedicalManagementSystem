@@ -43,10 +43,12 @@
             $db = DB::getInstance();
             if($condition == 'latest')
                 $sql = "SELECT * FROM `booking` WHERE ".$type."ID = '".$userID."' AND dateBooking < CURRENT_DATE ORDER BY dateBooking DESC LIMIT 1";    
-            else if($condition != '')
+            else if($condition == 'met')
+                $sql = "SELECT * FROM `booking` WHERE ".$type."ID = '".$userID."' AND dateBooking < CURRENT_DATE ORDER BY dateBooking DESC";    
+            else if($condition == 'patient')
                 $sql = "SELECT * FROM `booking` WHERE ".$type."ID = '".$userID."' AND dateBooking > CURRENT_DATE";    
             else
-                $sql = "SELECT * FROM `booking` WHERE ".$type."ID = '".$userID."'";
+                $sql = "SELECT * FROM `booking` WHERE ".$type."ID = '".$userID."' ORDER BY dateBooking DESC";
             // print_r($sql);
             $req = $db->prepare($sql);
             $req->setFetchMode(PDO::FETCH_ASSOC);

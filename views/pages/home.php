@@ -42,12 +42,13 @@
         <div class="col-md-4">
             <div class="card my-4">
                 <h5 class="card-header">Thời gian</h5>
-                <d class="card-body">
-                    <iframe src="http://free.timeanddate.com/clock/i7bmndyc/n95/szw210/szh210/hocfff/hbw0/cf100/hgr0/fas20/facfff/fdi86/mqc000/mqs2/mql3/mqw4/mqd70/mhc000/mhs2/mhl3/mhw4/mhd70/mmv0/hhs3/hms3/hsc00f" frameborder="0" width="210" height="210"></iframe>
-                </d>
+                <div class="card-body row">
+                    <div class='col'></div>
+                    <iframe class='col' scrolling="no" frameborder="yes" clocktype="html5" style="overflow:hidden;border:0;margin:0;padding:0;width:180px;height:60px;"src="https://www.clocklink.com/html5embed.php?clock=004&timezone=GMT0700&color=blue&size=180&Title=&Message=&Target=&From=2020,1,1,0,0,0&Color=blue"></iframe>  
+                    <div class='col'></div>
+                </div>
             </div>
-
-            <div class="card my-4">
+            <!-- <div class="card my-4">
                 <h5 class="card-header">Tìm kiếm</h5>
                 <div class="card-body">
                     <div class="input-group">
@@ -57,7 +58,7 @@
                         </span>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
 
             <div class="card my-4">
@@ -67,26 +68,26 @@
                         <div class="col-lg-6">
                             <ul class="list-unstyled mb-0">
                                 <li>
-                                    <a href="#">Tiêu hóa</a>
+                                    <a href="#">Cơ xương khớp</a>
                                 </li>
                                 <li>
                                     <a href="#">Tim mạch</a>
                                 </li>
                                 <li>
-                                    <a href="#">Xương khớp</a>
+                                    <a href="#">Tiêu hóa</a>
                                 </li>
                             </ul>
                         </div>
                         <div class="col-lg-6">
                             <ul class="list-unstyled mb-0">
                                 <li>
-                                    <a href="#">Nhi khoa</a>
+                                    <a href="#">Sức khỏe tinh thần</a>
                                 </li>
                                 <li>
-                                    <a href="#">Sản khoa</a>
+                                    <a href="#">Dị ứng - Miễn dịch</a>
                                 </li>
                                 <li>
-                                    <a href="#">Nhãn khoa</a>
+                                    <a href="#">Ngoại tổng hợp</a>
                                 </li>
                             </ul>
                         </div>
@@ -95,7 +96,7 @@
             </div>
 
 
-            <div class="card my-4">
+            <!-- <div class="card my-4">
                 <h5 class="card-header">Tư vấn</h5>
                 <div class="card-body">
                     <div class="input-group">
@@ -105,7 +106,7 @@
                         </span>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
         </div>
 

@@ -32,7 +32,7 @@
                 if($this->isNull()){
                     $this->result = 'Bạn chưa nhập đủ thông tin';
                 }
-                elseif( booking::exist($this->input)){
+                else if( booking::exist($this->input)){
                     $this->result = 'Bác sĩ đã có lịch khám trong khoảng thời gian này';
                 }
                 else{
