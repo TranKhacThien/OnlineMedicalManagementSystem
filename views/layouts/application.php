@@ -110,7 +110,7 @@
         ?>
                 <footer style='position: static;margin-top: 10px; bottom:0; width: 100%' class='py-3 bg-dark'>
                     <div class='container'>
-                        <p class=' text-center text-white'>Copyright &copy; Your Website 2020</p>
+                        <p class=' text-center text-white'>Cơ sở dữ liệu 1920II_INT2207_7</p>
                     </div>
                 </footer>
         <?php
