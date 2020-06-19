@@ -41,7 +41,7 @@
                 }
            
             }
-            if(isset($_GET['doctorID'])) $data['schedule'] = booking::schedule('doctor',$_GET['doctorID']);
+            if(isset($_GET['doctorID'])) $data['schedule'] = booking::schedule('doctor',$_GET['doctorID'],'patient');
             $data['result'] = $this->result;
             if(isset($_SESSION['username'])){
                 $this->render('booking',$data);
